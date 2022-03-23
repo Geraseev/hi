@@ -1,8 +1,8 @@
 # highlux
-primeira entrega:
+Primeira entrega:
 RF01(Debora), RF02(Lara) e RF03(Lara)
 
-segunda entrega:
+Segunda entrega:
 RF04(Lara), RF05(Debora), RF06(Debora), RF07(Lara), RF08(Debora)
 
 Testes(Luiza)
