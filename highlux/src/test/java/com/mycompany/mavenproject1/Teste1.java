@@ -8,9 +8,9 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class Mavenproject1Test {
+public class Teste1 {
     
-    public Mavenproject1Test() {
+    public Teste1() {
     }
     
     @BeforeAll
@@ -36,7 +36,7 @@ public class Mavenproject1Test {
     public void testMain() {
         System.out.println("main");
         String[] args = null;
-        Mavenproject1.main(args);
+        Teste.main(args);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
