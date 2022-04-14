@@ -1,6 +1,7 @@
 
 package com.mycompany.mavenproject1;
 
+import Highlux.Main;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -36,7 +37,7 @@ public class Teste1 {
     public void testMain() {
         System.out.println("main");
         String[] args = null;
-        Teste.main(args);
+        Main.main(args);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
