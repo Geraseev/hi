@@ -134,9 +134,6 @@ public class TelaLogin extends javax.swing.JFrame {
         usuario = jTextFieldUsuario.getText();
         senha = String.valueOf(jPasswordFieldSenha.getPassword());
         
-        System.out.println(usuario);
-        System.out.println(senha);
-        
         UsuarioDAO usuariodao = new UsuarioDAO();
         boolean verificar = usuariodao.efetuarLogin(usuario,senha);
         if(verificar==true){
