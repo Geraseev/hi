@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import telas.TelaImovel;
 import javabeans.Endereco;
-import javabeans.ImovelExtra;
+import javabeans.Imovel;
 
 /**
  *
@@ -48,7 +48,7 @@ public class ImovelDAO {
         }
     }
     
-    public void adicionarImovel(ImovelExtra obj){
+    public void adicionarImovel(Imovel obj){
         try {
             String cmdsql = "insert into imovel(valor,status) values(?,?)";
             
@@ -94,9 +94,9 @@ public class ImovelDAO {
         }
     }
     
-    public List<ImovelExtra> listarExtra(){
+    public List<Imovel> listarImovel(){
         try  {
-            List<ImovelExtra> lista = new ArrayList<ImovelExtra>();
+            List<Imovel> lista = new ArrayList<Imovel>();
             
             String cmdsql = "select* from imovel";
             
@@ -105,7 +105,7 @@ public class ImovelDAO {
             ResultSet rs = stmt.executeQuery();
             
             while(rs.next()){
-                ImovelExtra v = new ImovelExtra();
+                Imovel v = new Imove();
                 
                 v.setIdimovel(rs.getInt("idmovel"));
                 v.setValor(rs.getString("valor"));
