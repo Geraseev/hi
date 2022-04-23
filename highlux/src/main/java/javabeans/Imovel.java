@@ -8,6 +8,8 @@ package javabeans;
  */
 public class Imovel {
     private int idimovel;
+    private String valor;
+    private String status;
 
     public int getIdimovel() {
         return idimovel;
@@ -32,7 +34,5 @@ public class Imovel {
     public void setStatus(String status) {
         this.status = status;
     }
-    private String valor;
-    private String status;
     
 }
