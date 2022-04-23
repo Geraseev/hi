@@ -7,11 +7,27 @@ package javabeans;
 public class Endereco {
     private int idendereco;
     private String logradouro;
-    private int numero;
+    private String numero;
     private String bairro;
     private String cidade;
     private String estado;
-    private int cep;
+
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
+    public String getCep() {
+        return cep;
+    }
+
+    public void setCep(String cep) {
+        this.cep = cep;
+    }
+    private String cep;
     private String complemento;
 
     public int getIdendereco() {
@@ -28,14 +44,6 @@ public class Endereco {
 
     public void setLogradouro(String logradouro) {
         this.logradouro = logradouro;
-    }
-
-    public int getNumero() {
-        return numero;
-    }
-
-    public void setNumero(int numero) {
-        this.numero = numero;
     }
 
     public String getBairro() {
@@ -62,14 +70,6 @@ public class Endereco {
         this.estado = estado;
     }
 
-    public int getCep() {
-        return cep;
-    }
-
-    public void setCep(int cep) {
-        this.cep = cep;
-    }
-
     public String getComplemento() {
         return complemento;
     }
@@ -79,3 +79,4 @@ public class Endereco {
     }
     
 }
+
