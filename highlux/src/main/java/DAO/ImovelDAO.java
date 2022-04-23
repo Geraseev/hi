@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package DAO;
 
 import collections.ConnectionMod;
@@ -14,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import telas.TelaImovel;
 import javabeans.Endereco;
-import javabeans.Imovel;
+import javabeans.ImovelExtra;
 
 /**
  *
@@ -33,11 +28,11 @@ public class ImovelDAO {
             
             PreparedStatement stmt = conecta.prepareStatement(cmdsql);
             stmt.setString(1, obj.getLogradouro());
-            stmt.setInt(2, obj.getNumero());
+            stmt.setString(2, obj.getNumero());
             stmt.setString(3, obj.getBairro());
             stmt.setString(4, obj.getCidade());
             stmt.setString(5, obj.getEstado());
-            stmt.setInt(6, obj.getCep());
+            stmt.setString(6, obj.getCep());
             stmt.setString(7, obj.getComplemento());
             
             stmt.execute();
@@ -48,7 +43,7 @@ public class ImovelDAO {
         }
     }
     
-    public void adicionarImovel(Imovel obj){
+    public void adicionarImovel(ImovelExtra obj){
         try {
             String cmdsql = "insert into imovel(valor,status) values(?,?)";
             
@@ -79,7 +74,7 @@ public class ImovelDAO {
                 
                 v.setIdendereco(rs.getInt("idendereco"));
                 v.setLogradouro(rs.getString("logradouro"));
-                v.setNumero(rs.getInt("numero"));
+                v.setNumero(rs.getString("numero"));
                 v.setComplemento(rs.getString("complemento"));
                 v.setBairro(rs.getString("bairro"));
                 v.setCidade(rs.getString("cidade"));
@@ -94,9 +89,9 @@ public class ImovelDAO {
         }
     }
     
-    public List<Imovel> listarImovel(){
+    public List<ImovelExtra> listarExtra(){
         try  {
-            List<Imovel> lista = new ArrayList<Imovel>();
+            List<ImovelExtra> lista = new ArrayList<ImovelExtra>();
             
             String cmdsql = "select* from imovel";
             
@@ -105,7 +100,7 @@ public class ImovelDAO {
             ResultSet rs = stmt.executeQuery();
             
             while(rs.next()){
-                Imovel v = new Imove();
+                ImovelExtra v = new ImovelExtra();
                 
                 v.setIdimovel(rs.getInt("idmovel"));
                 v.setValor(rs.getString("valor"));
@@ -137,7 +132,7 @@ public class ImovelDAO {
                 
                 v.setIdendereco(rs.getInt("idendereco"));
                 v.setLogradouro(rs.getString("logradouro"));
-                v.setNumero(rs.getInt("numero"));
+                v.setNumero(rs.getString("numero"));
                 v.setComplemento(rs.getString("complemento"));
                 v.setBairro(rs.getString("bairro"));
                 v.setCidade(rs.getString("cidade"));
