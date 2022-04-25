@@ -1,29 +1,28 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package telas;
 
 import DAO.ImovelDAO;
-import javabeans.Endereco;
+import javabeans.Imovel;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-public class ConsultaImovel extends javax.swing.JFrame {
+/**
+ *
+ * @author lgera
+ */
+public class TelaGConsultarImovel extends javax.swing.JFrame {
 
     /**
-     * Creates new form ConsultaImovel
+     * Creates new form TelaGConsultarImovel
      */
     public void Listar(){
         try {
             ImovelDAO dao = new ImovelDAO();
-            List<Endereco> listaI = dao.listarEndereco();
+            List<Imovel> listaI = dao.listarEndereco();
             DefaultTableModel modelo = (DefaultTableModel)tabela1.getModel();
             modelo.setNumRows(0);
             
-            for(Endereco v : listaI){
+            for(Imovel v : listaI){
                 modelo.addRow(new Object[]{
                 v.getIdendereco(),
                 v.getLogradouro(),
@@ -31,13 +30,16 @@ public class ConsultaImovel extends javax.swing.JFrame {
                 v.getComplemento(),
                 v.getBairro(),
                 v.getCidade(),
-                v.getEstado()
+                v.getEstado(),
+                v.getStatus(),
+                v.getValor()
                 });
             }
         } catch (Exception e) {
         }
     }
-    public ConsultaImovel() {
+   
+    public TelaGConsultarImovel() {
         initComponents();
     }
 
@@ -69,13 +71,13 @@ public class ConsultaImovel extends javax.swing.JFrame {
 
         tabela1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Logradouro", "Número", "Complemento", "Bairro", "Cidade", "Estado"
+                "ID", "Logradouro", "Número", "Complemento", "Bairro", "Cidade", "Estado", "Status", "Valor"
             }
         ));
         jScrollPane1.setViewportView(tabela1);
@@ -94,7 +96,7 @@ public class ConsultaImovel extends javax.swing.JFrame {
         });
 
         jLabel2.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        jLabel2.setText("Consulta por logradouro");
+        jLabel2.setText("Consulta por cidade");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -116,7 +118,9 @@ public class ConsultaImovel extends javax.swing.JFrame {
                                 .addGap(142, 142, 142)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel1)
-                                    .addComponent(jLabel2))))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(16, 16, 16)
+                                        .addComponent(jLabel2)))))
                         .addGap(0, 68, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -145,14 +149,14 @@ public class ConsultaImovel extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         try {
-            String logradouro = txtCon.getText();
+            String cidade = txtCon.getText();
             
             ImovelDAO dao = new ImovelDAO();
-            List<Endereco> listaI = dao.listarEnderecoPorLog(logradouro);
+            List<Imovel> listaI = dao.listarEnderecoPorCid(cidade);
             DefaultTableModel modelo = (DefaultTableModel)tabela1.getModel();
             modelo.setNumRows(0);
             
-            for(Endereco v : listaI){
+            for(Imovel v : listaI){
                 modelo.addRow(new Object[]{
                 v.getIdendereco(),
                 v.getLogradouro(),
@@ -160,7 +164,9 @@ public class ConsultaImovel extends javax.swing.JFrame {
                 v.getComplemento(),
                 v.getBairro(),
                 v.getCidade(),
-                v.getEstado()                
+                v.getEstado() ,
+                v.getStatus(),
+                v.getValor()
                 });
             }
         } catch (Exception e) {
@@ -170,6 +176,7 @@ public class ConsultaImovel extends javax.swing.JFrame {
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {                                     
         Listar();
+
     }                                    
 
     /**
@@ -189,20 +196,21 @@ public class ConsultaImovel extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ConsultaImovel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaGConsultarImovel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ConsultaImovel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaGConsultarImovel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ConsultaImovel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaGConsultarImovel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ConsultaImovel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaGConsultarImovel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ConsultaImovel().setVisible(true);
+                new TelaGConsultarImovel().setVisible(true);
             }
         });
     }
@@ -216,3 +224,4 @@ public class ConsultaImovel extends javax.swing.JFrame {
     private javax.swing.JTextField txtCon;
     // End of variables declaration                   
 }
+
