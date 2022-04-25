@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import javabeans.Endereco;
+import javabeans.Imovel;
 
 
 /**
@@ -21,7 +21,7 @@ public class ImovelDAO {
         this.conecta = new ConnectionMod().conecta();
     }
     
-    public void adicionarExtra(Endereco obj){
+    public void adicionarExtra(Imovel obj){
         try {
             String cmdsql = "insert into endereco(logradouro,numero,bairro,cidade,estado,cep,complemento) values(?,?,?,?,?,?,?)";
             
@@ -42,7 +42,7 @@ public class ImovelDAO {
         }
     }
     
-    public void adicionarImovel(Endereco obj){
+    public void adicionarImovel(Imovel obj){
         try {
             String cmdsql = "insert into imovel(valor,status,endereco_idendereco) values(?,?,?)";
             
@@ -59,9 +59,9 @@ public class ImovelDAO {
         }
     }
     
-    public List<Endereco> listarEndereco(){
+    public List<Imovel> listarEndereco(){
         try  {
-            List<Endereco> lista = new ArrayList<Endereco>();
+            List<Imovel> lista = new ArrayList<Imovel>();
             
             String cmdsql = "select * from endereco";
             
@@ -70,7 +70,7 @@ public class ImovelDAO {
             ResultSet rs = stmt.executeQuery();
             
             while(rs.next()){
-                Endereco v = new Endereco();
+                Imovel v = new Imovel();
                 
                 v.setIdendereco(rs.getInt("idendereco"));
                 v.setLogradouro(rs.getString("logradouro"));
@@ -93,9 +93,9 @@ public class ImovelDAO {
 
     
     
-    public List<Endereco> listarEnderecoPorCid(String cidade){
+    public List<Imovel> listarEnderecoPorCid(String cidade){
         try  {
-            List<Endereco> lista = new ArrayList<Endereco>();
+            List<Imovel> lista = new ArrayList<Imovel>();
             
             String cmdsql = "select i.status, i.valor, e.logradouro, e.numero, e.bairro, e.cidade, e.estado, e.cep, e.complemento from imovel i join endereco e on i.endereco_idendereco = e.idendereco where cidade like ?";
             
@@ -106,7 +106,7 @@ public class ImovelDAO {
             ResultSet rs = stmt.executeQuery();
             
             while(rs.next()){
-                Endereco v = new Endereco();
+                Imovel v = new Imovel();
                 
                 v.setIdendereco(rs.getInt("idendereco"));
                 v.setLogradouro(rs.getString("logradouro"));
@@ -127,9 +127,9 @@ public class ImovelDAO {
         }
     }
     
-    public List<Endereco> listarEnderecoPorLog(String logradouro){
+    public List<Imovel> listarEnderecoPorLog(String logradouro){
         try  {
-            List<Endereco> lista = new ArrayList<Endereco>();
+            List<Imovel> lista = new ArrayList<Imovel>();
             
             String cmdsql = "select * from endereco where logradouro like ?";
             
@@ -140,7 +140,7 @@ public class ImovelDAO {
             ResultSet rs = stmt.executeQuery();
             
             while(rs.next()){
-                Endereco v = new Endereco();
+                Imovel v = new Imovel();
                 
                 v.setIdendereco(rs.getInt("idendereco"));
                 v.setLogradouro(rs.getString("logradouro"));
@@ -159,7 +159,7 @@ public class ImovelDAO {
         }
     }
     
-    public void editarEnd(Endereco obj){
+    public void editarEnd(Imovel obj){
         try {
             String cmdsql = "update endereco set logradouro=?, numero=?, bairro=?, cidade=?, estado=?, cep=?, complemento=? where idendereco=?";
             
@@ -182,7 +182,7 @@ public class ImovelDAO {
         }
     }
     
-    public void editarImovel(Endereco obj){
+    public void editarImovel(Imovel obj){
         try {
             String cmdsql = "update imovel set status=?, valor=? where endereco_idendereco=?";
             
