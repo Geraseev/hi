@@ -1,7 +1,11 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package telas;
 
 import DAO.ImovelDAO;
-import javabeans.Endereco;
 import javabeans.Imovel;
 import javax.swing.JOptionPane;
 import java.util.List;
@@ -219,7 +223,7 @@ public class TelaGAdicionarImovel extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         try{
-            Endereco obj = new Endereco();
+            Imovel obj = new Imovel();
             
             obj.setLogradouro(txtLog.getText());
             obj.setNumero(txtNum.getText());
@@ -240,11 +244,11 @@ public class TelaGAdicionarImovel extends javax.swing.JFrame {
             String logradouro = txtLog.getText();
             
             ImovelDAO dao = new ImovelDAO();
-            List<Endereco> listaI = dao.listarEnderecoPorLog(logradouro);
+            List<Imovel> listaI = dao.listarEnderecoPorLog(logradouro);
             DefaultTableModel modelo = (DefaultTableModel)tabela1.getModel();
             modelo.setNumRows(0);
             
-            for(Endereco v : listaI){
+            for(Imovel v : listaI){
                 modelo.addRow(new Object[]{
                 v.getIdendereco(),
                 v.getLogradouro(),
@@ -267,7 +271,7 @@ public class TelaGAdicionarImovel extends javax.swing.JFrame {
        try{
             Imovel obj = new Imovel();
             
-            obj.setEndereco_idendereco(txtCod.getText());
+            obj.setEndereco_idendereco(Integer.parseInt(txtCod.getText()));
             obj.setStatus(txtStatus.getText());
             obj.setValor(txtVal.getText());
 
