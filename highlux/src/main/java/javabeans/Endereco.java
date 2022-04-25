@@ -1,16 +1,53 @@
-package javabeans;
+ppackage javabeans;
 
 /**
  *
  * @author lgera
  */
-public class Endereco {
+public class Imovel {
     private int idendereco;
     private String logradouro;
     private String numero;
     private String bairro;
     private String cidade;
     private String estado;
+    private int idimovel;
+    private String valor;
+    private String status;
+    private int endereco_idendereco;
+    
+
+    public int getIdimovel() {
+        return idimovel;
+    }
+
+    public void setIdimovel(int idimovel) {
+        this.idimovel = idimovel;
+    }
+
+    public String getValor() {
+        return valor;
+    }
+
+    public void setValor(String valor) {
+        this.valor = valor;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public int getEndereco_idendereco() {
+        return endereco_idendereco;
+    }
+
+    public void setEndereco_idendereco(int endereco_idendereco) {
+        this.endereco_idendereco = endereco_idendereco;
+    }
 
     public String getNumero() {
         return numero;
@@ -79,4 +116,3 @@ public class Endereco {
     }
     
 }
-
