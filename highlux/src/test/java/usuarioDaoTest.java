@@ -30,21 +30,14 @@ public class usuarioDaoTest {
         assertEquals(false, usuario.efetuarLogin("nome", "password"));
     }
     
-    @Disabled
-    /*falta*/
     @Test
     public void testEfetuarLoginException() throws SQLException {
-        ConnectionMod connection = mock(ConnectionMod.class);
-        //Connection connection = new ConnectionMod().conecta();
+        /*mocka a classe UsuarioDAO*/
+        UsuarioDAO usuario = mock(UsuarioDAO.class);
         
-        when(connection.conecta()).thenThrow(new RuntimeException());
+        /*simula um lançamento de exception*/
+        when(usuario.efetuarLogin(anyString(), anyString())).thenThrow(new RuntimeException());
         
-        /*PreparedStatement stmt = mock(PreparedStatement.class);
-        doReturn(stmt).when(connection.prepareStatement(startsWith("select")));*/
-        
-        UsuarioDAO usuario = new UsuarioDAO();
-        
-        /*executa */
         assertThrows(Exception.class, () -> {
             /*executa login*/
             usuario.efetuarLogin("luiza", "password");
@@ -63,7 +56,7 @@ public class usuarioDaoTest {
     } 
     
     @Test
-    public void testEfetuarCadastroException() { //nao faz sentido
+    public void testEfetuarCadastroException() { 
         /*mocka a classe UsuarioDAO*/
         UsuarioDAO usuario = mock(UsuarioDAO.class);
         

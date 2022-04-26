@@ -5,10 +5,7 @@
 
 import collections.ConnectionMod;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -23,30 +20,20 @@ public class ConnectionModTest {
     @Test
     public void testConnection() throws SQLException {
         ConnectionMod cmod = new ConnectionMod();
-        DriverManager dm = mock(DriverManager.class);
-        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/highlux", "root", "root");
-      
-        when(dm.getConnection(anyString())).thenReturn(connection);
+        Connection connection = cmod.conecta();
         
-        assertEquals(connection, cmod);
-        
-        /*assert not throw*/
+        assertNotEquals(null, connection);
     }
     
-    /*
-    -----connection------
-    - connection
-    - exception
-    
-    
-    ConnectionMod connection = mock(ConnectionMod.class);
+    @Test
+    public void testConnectionException() throws SQLException {
+        ConnectionMod cmod = mock(ConnectionMod.class);
         
-        when(connection.conecta()).thenThrow(SQLException.class);
-         
-        catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    
-    */
+        when(cmod.conecta()).thenThrow(new RuntimeException());
+       
+        assertThrows(RuntimeException.class, () -> {
+            cmod.conecta();
+        });
+    }
     
 }
