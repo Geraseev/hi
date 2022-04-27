@@ -4,10 +4,10 @@ import collections.ConnectionMod;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import javabeans.Imovel;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -21,7 +21,7 @@ public class ImovelDAO {
         this.conecta = new ConnectionMod().conecta();
     }
     
-    public void adicionarExtra(Imovel obj){
+    public boolean adicionarExtra(Imovel obj){
         try {
             String cmdsql = "insert into endereco(logradouro,numero,bairro,cidade,estado,cep,complemento) values(?,?,?,?,?,?,?)";
             
@@ -37,12 +37,14 @@ public class ImovelDAO {
             stmt.execute();
             
             stmt.close();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+            return true;
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro");
+            return false;
         }
     }
     
-    public void adicionarImovel(Imovel obj){
+    public boolean adicionarImovel(Imovel obj){
         try {
             String cmdsql = "insert into imovel(valor,status,endereco_idendereco) values(?,?,?)";
             
@@ -54,8 +56,10 @@ public class ImovelDAO {
             stmt.execute();
             
             stmt.close();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+            return true;
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro");
+            return false;
         }
     }
     
@@ -159,7 +163,7 @@ public class ImovelDAO {
         }
     }
     
-    public void editarEnd(Imovel obj){
+    public boolean editarEnd(Imovel obj){
         try {
             String cmdsql = "update endereco set logradouro=?, numero=?, bairro=?, cidade=?, estado=?, cep=?, complemento=? where idendereco=?";
             
@@ -177,12 +181,14 @@ public class ImovelDAO {
             stmt.execute();
             
             stmt.close();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+            return true;
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro");
+            return false;
         }
     }
     
-    public void editarImovel(Imovel obj){
+    public boolean editarImovel(Imovel obj){
         try {
             String cmdsql = "update imovel set status=?, valor=? where endereco_idendereco=?";
             
@@ -195,8 +201,10 @@ public class ImovelDAO {
             stmt.execute();
             
             stmt.close();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+            return true;
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro");
+            return false;
         }
     }
     
