@@ -1,4 +1,4 @@
-ppackage DAO;
+package DAO;
 
 import collections.ConnectionMod;
 import java.sql.Connection;

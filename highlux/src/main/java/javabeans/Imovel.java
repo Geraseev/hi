@@ -1,4 +1,4 @@
-ppackage javabeans;
+package javabeans;
 
 /**
  *
@@ -15,6 +15,7 @@ public class Imovel {
     private String valor;
     private String status;
     private int endereco_idendereco;
+    
     
 
     public int getIdimovel() {

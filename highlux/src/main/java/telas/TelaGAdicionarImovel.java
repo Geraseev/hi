@@ -5,6 +5,12 @@
  */
 package telas;
 
+import DAO.ImovelDAO;
+import javabeans.Imovel;
+import javax.swing.JOptionPane;
+import java.util.*;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author lgera
