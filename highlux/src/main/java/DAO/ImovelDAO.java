@@ -39,7 +39,7 @@ public class ImovelDAO {
             stmt.close();
             return true;
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro");
+            JOptionPane.showMessageDialog(null, "Erro" + e);
             return false;
         }
     }
@@ -58,7 +58,7 @@ public class ImovelDAO {
             stmt.close();
             return true;
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro");
+            JOptionPane.showMessageDialog(null, "Erro" + e);
             return false;
         }
     }
@@ -183,7 +183,7 @@ public class ImovelDAO {
             stmt.close();
             return true;
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro");
+            JOptionPane.showMessageDialog(null, "Erro" + e);
             return false;
         }
     }
@@ -203,7 +203,7 @@ public class ImovelDAO {
             stmt.close();
             return true;
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro");
+            JOptionPane.showMessageDialog(null, "Erro" + e);
             return false;
         }
     }
