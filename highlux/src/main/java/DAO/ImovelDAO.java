@@ -21,9 +21,9 @@ public class ImovelDAO {
         this.conecta = new ConnectionMod().conecta();
     }
     
-    public boolean adicionarExtra(Imovel obj){
+    public boolean adicionarImovel(Imovel obj){
         try {
-            String cmdsql = "insert into endereco(logradouro,numero,bairro,cidade,estado,cep,complemento) values(?,?,?,?,?,?,?)";
+            String cmdsql = "insert into imovel(logradouro,numero,bairro,cidade,estado,cep,complemento,valor,status) values(?,?,?,?,?,?,?,?,?)";
             
             PreparedStatement stmt = conecta.prepareStatement(cmdsql);
             stmt.setString(1, obj.getLogradouro());
@@ -33,6 +33,8 @@ public class ImovelDAO {
             stmt.setString(5, obj.getEstado());
             stmt.setString(6, obj.getCep());
             stmt.setString(7, obj.getComplemento());
+            stmt.setString(8, obj.getValor());
+            stmt.setString(9, obj.getStatus());
             
             stmt.execute();
             
@@ -44,30 +46,11 @@ public class ImovelDAO {
         }
     }
     
-    public boolean adicionarImovel(Imovel obj){
-        try {
-            String cmdsql = "insert into imovel(valor,status,endereco_idendereco) values(?,?,?)";
-            
-            PreparedStatement stmt = conecta.prepareStatement(cmdsql);
-            stmt.setString(1, obj.getValor());
-            stmt.setString(2, obj.getStatus());
-            stmt.setInt(3, obj.getEndereco_idendereco());
-            
-            stmt.execute();
-            
-            stmt.close();
-            return true;
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro" + e);
-            return false;
-        }
-    }
-    
-    public List<Imovel> listarEndereco(){
+    public List<Imovel> listarImovel(){
         try  {
             List<Imovel> lista = new ArrayList<Imovel>();
             
-            String cmdsql = "select * from endereco";
+            String cmdsql = "select * from imovel";
             
             PreparedStatement stmt = conecta.prepareStatement(cmdsql);
             
@@ -76,7 +59,7 @@ public class ImovelDAO {
             while(rs.next()){
                 Imovel v = new Imovel();
                 
-                v.setIdendereco(rs.getInt("idendereco"));
+                v.setIdimovel(rs.getInt("idimovel"));
                 v.setLogradouro(rs.getString("logradouro"));
                 v.setNumero(rs.getString("numero"));
                 v.setComplemento(rs.getString("complemento"));
@@ -84,6 +67,8 @@ public class ImovelDAO {
                 v.setCidade(rs.getString("cidade"));
                 v.setEstado(rs.getString("estado"));
                 v.setCep(rs.getString("cep"));
+                v.setValor(rs.getString("valor"));
+                v.setStatus(rs.getString("status"));
                 
                 
                 
@@ -101,7 +86,7 @@ public class ImovelDAO {
         try  {
             List<Imovel> lista = new ArrayList<Imovel>();
             
-            String cmdsql = "select i.status, i.valor, e.logradouro, e.numero, e.bairro, e.cidade, e.estado, e.cep, e.complemento from imovel i join endereco e on i.endereco_idendereco = e.idendereco where cidade like ?";
+            String cmdsql = "select * from imovel where cidade like ?";
             
             
             PreparedStatement stmt = conecta.prepareStatement(cmdsql);
@@ -112,7 +97,7 @@ public class ImovelDAO {
             while(rs.next()){
                 Imovel v = new Imovel();
                 
-                v.setIdendereco(rs.getInt("idendereco"));
+                v.setIdimovel(rs.getInt("idimovel"));
                 v.setLogradouro(rs.getString("logradouro"));
                 v.setNumero(rs.getString("numero"));
                 v.setComplemento(rs.getString("complemento"));
@@ -135,7 +120,7 @@ public class ImovelDAO {
         try  {
             List<Imovel> lista = new ArrayList<Imovel>();
             
-            String cmdsql = "select * from endereco where logradouro like ?";
+            String cmdsql = "select * from imovel where logradouro like ?";
             
             
             PreparedStatement stmt = conecta.prepareStatement(cmdsql);
@@ -146,13 +131,15 @@ public class ImovelDAO {
             while(rs.next()){
                 Imovel v = new Imovel();
                 
-                v.setIdendereco(rs.getInt("idendereco"));
+                v.setIdimovel(rs.getInt("idimovel"));
                 v.setLogradouro(rs.getString("logradouro"));
                 v.setNumero(rs.getString("numero"));
                 v.setComplemento(rs.getString("complemento"));
                 v.setBairro(rs.getString("bairro"));
                 v.setCidade(rs.getString("cidade"));
                 v.setEstado(rs.getString("estado"));
+                v.setValor(rs.getString("valor"));
+                v.setStatus(rs.getString("status"));
                 
                 
                 lista.add(v);               
@@ -163,9 +150,9 @@ public class ImovelDAO {
         }
     }
     
-    public boolean editarEnd(Imovel obj){
+    public boolean editarImovel(Imovel obj){
         try {
-            String cmdsql = "update endereco set logradouro=?, numero=?, bairro=?, cidade=?, estado=?, cep=?, complemento=? where idendereco=?";
+            String cmdsql = "update imovel set logradouro=?, numero=?, bairro=?, cidade=?, estado=?, cep=?, complemento=?, status=?, valor=? where idimovel=?";
             
             PreparedStatement stmt = conecta.prepareStatement(cmdsql);
             
@@ -176,7 +163,9 @@ public class ImovelDAO {
             stmt.setString(5, obj.getEstado());
             stmt.setString(6, obj.getCep());
             stmt.setString(7, obj.getComplemento());
-            stmt.setInt(8, obj.getIdendereco());
+            stmt.setString(8, obj.getStatus());
+            stmt.setString(9, obj.getValor());
+            stmt.setInt(10, obj.getIdimovel());
             
             stmt.execute();
             
@@ -188,24 +177,5 @@ public class ImovelDAO {
         }
     }
     
-    public boolean editarImovel(Imovel obj){
-        try {
-            String cmdsql = "update imovel set status=?, valor=? where endereco_idendereco=?";
-            
-            PreparedStatement stmt = conecta.prepareStatement(cmdsql);
-            
-            stmt.setString(1, obj.getStatus());
-            stmt.setString(2, obj.getValor());
-            stmt.setInt(3, obj.getIdimovel());
-            
-            stmt.execute();
-            
-            stmt.close();
-            return true;
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro" + e);
-            return false;
-        }
-    }
     
 }

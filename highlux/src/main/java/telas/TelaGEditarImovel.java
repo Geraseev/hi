@@ -31,6 +31,7 @@ public class TelaGEditarImovel extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jLabel2 = new javax.swing.JLabel();
         txtLog = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -47,7 +48,6 @@ public class TelaGEditarImovel extends javax.swing.JFrame {
         txtComplemento = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        txtStatus = new javax.swing.JTextField();
         txtVal = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -57,6 +57,8 @@ public class TelaGEditarImovel extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tabela1 = new javax.swing.JTable();
+        btnD = new javax.swing.JRadioButton();
+        btnND = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -101,12 +103,6 @@ public class TelaGEditarImovel extends javax.swing.JFrame {
 
         jLabel9.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         jLabel9.setText("Endereço");
-
-        txtStatus.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtStatusActionPerformed(evt);
-            }
-        });
 
         txtVal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -158,11 +154,30 @@ public class TelaGEditarImovel extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tabela1);
 
+        btnD.setText("Disponível");
+        btnD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDActionPerformed(evt);
+            }
+        });
+
+        btnND.setText("Não Disponivel");
+        btnND.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNDActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 430, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(109, 109, 109)
+                .addComponent(btnD)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnND)
+                .addContainerGap(151, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -211,9 +226,6 @@ public class TelaGEditarImovel extends javax.swing.JFrame {
                             .addGap(18, 18, 18)
                             .addComponent(txtComplemento, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createSequentialGroup()
-                            .addGap(110, 110, 110)
-                            .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
                             .addGap(50, 50, 50)
                             .addComponent(jLabel12))
                         .addGroup(layout.createSequentialGroup()
@@ -236,7 +248,12 @@ public class TelaGEditarImovel extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 520, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(327, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnD)
+                    .addComponent(btnND))
+                .addGap(206, 206, 206))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -288,27 +305,24 @@ public class TelaGEditarImovel extends javax.swing.JFrame {
                             .addComponent(jLabel8))
                         .addComponent(txtComplemento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(36, 36, 36)
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
-                            .addGap(48, 48, 48)
-                            .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(78, 78, 78)
+                            .addGap(76, 76, 76)
                             .addComponent(jLabel12))
                         .addGroup(layout.createSequentialGroup()
-                            .addGap(18, 18, 18)
+                            .addGap(16, 16, 16)
                             .addComponent(jLabel10))
                         .addGroup(layout.createSequentialGroup()
-                            .addGap(78, 78, 78)
+                            .addGap(76, 76, 76)
                             .addComponent(txtVal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createSequentialGroup()
-                            .addGap(108, 108, 108)
+                            .addGap(106, 106, 106)
                             .addComponent(jButton2))
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createSequentialGroup()
-                            .addGap(48, 48, 48)
+                            .addGap(46, 46, 46)
                             .addComponent(jLabel11)))
-                    .addGap(8, 8, 8)
+                    .addGap(53, 53, 53)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
@@ -328,10 +342,6 @@ public class TelaGEditarImovel extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtComplementoActionPerformed
 
-    private void txtStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStatusActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtStatusActionPerformed
-
     private void txtValActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtValActionPerformed
@@ -340,7 +350,7 @@ public class TelaGEditarImovel extends javax.swing.JFrame {
         try{
             Imovel obj = new Imovel();
 
-            obj.setIdendereco(Integer.parseInt(txtCod.getText()));
+            obj.setIdimovel(Integer.parseInt(txtCod.getText()));
             obj.setLogradouro(txtLog.getText());
             obj.setNumero(txtNum.getText());
             obj.setBairro(txtBairro.getText());
@@ -348,23 +358,19 @@ public class TelaGEditarImovel extends javax.swing.JFrame {
             obj.setEstado(txtEst.getText());
             obj.setCep(txtCep.getText());
             obj.setComplemento(txtComplemento.getText());
-
-            ImovelDAO dao = new ImovelDAO();
-            dao.editarEnd(obj);
-
-            JOptionPane.showMessageDialog(null, "Edição realizada com sucesso");
-        } catch (Exception e){
-            JOptionPane.showMessageDialog(null, "falha" + e);
-        }
-        try{
-            Imovel obj = new Imovel();
-
-            obj.setEndereco_idendereco(Integer.parseInt(txtCod.getText()));
-            obj.setStatus(txtStatus.getText());
+            if(btnD.isSelected()){
+                obj.setStatus("1");   
+            }
+            else{
+                obj.setStatus("2");   
+            }
             obj.setValor(txtVal.getText());
+            
 
             ImovelDAO dao = new ImovelDAO();
             dao.editarImovel(obj);
+
+            JOptionPane.showMessageDialog(null, "Edição realizada com sucesso");
         } catch (Exception e){
             JOptionPane.showMessageDialog(null, "falha" + e);
         }
@@ -383,9 +389,17 @@ public class TelaGEditarImovel extends javax.swing.JFrame {
         txtCid.setText(tabela1.getValueAt(tabela1.getSelectedRow(), 5).toString());
         txtEst.setText(tabela1.getValueAt(tabela1.getSelectedRow(), 6).toString());
         txtCep.setText(tabela1.getValueAt(tabela1.getSelectedRow(), 7).toString());
-        txtStatus.setText(tabela1.getValueAt(tabela1.getSelectedRow(), 8).toString());
+        btnD.setText(tabela1.getValueAt(tabela1.getSelectedRow(), 8).toString());
         txtVal.setText(tabela1.getValueAt(tabela1.getSelectedRow(), 9).toString());
     }//GEN-LAST:event_tabela1MouseClicked
+
+    private void btnDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDActionPerformed
+
+    private void btnNDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnNDActionPerformed
 
     /**
      * @param args the command line arguments
@@ -424,6 +438,9 @@ public class TelaGEditarImovel extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton btnD;
+    private javax.swing.JRadioButton btnND;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -448,7 +465,6 @@ public class TelaGEditarImovel extends javax.swing.JFrame {
     private javax.swing.JTextField txtEst;
     private javax.swing.JTextField txtLog;
     private javax.swing.JTextField txtNum;
-    private javax.swing.JTextField txtStatus;
     private javax.swing.JTextField txtVal;
     // End of variables declaration//GEN-END:variables
 }

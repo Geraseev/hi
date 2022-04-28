@@ -5,16 +5,16 @@ package javabeans;
  * @author lgera
  */
 public class Imovel {
-    private int idendereco;
+    private int idimovel;
     private String logradouro;
     private String numero;
     private String bairro;
     private String cidade;
     private String estado;
-    private int idimovel;
     private String valor;
     private String status;
-    private int endereco_idendereco;
+    private String cep;
+    private String complemento;
     
     
 
@@ -42,14 +42,6 @@ public class Imovel {
         this.status = status;
     }
 
-    public int getEndereco_idendereco() {
-        return endereco_idendereco;
-    }
-
-    public void setEndereco_idendereco(int endereco_idendereco) {
-        this.endereco_idendereco = endereco_idendereco;
-    }
-
     public String getNumero() {
         return numero;
     }
@@ -64,16 +56,6 @@ public class Imovel {
 
     public void setCep(String cep) {
         this.cep = cep;
-    }
-    private String cep;
-    private String complemento;
-
-    public int getIdendereco() {
-        return idendereco;
-    }
-
-    public void setIdendereco(int idendereco) {
-        this.idendereco = idendereco;
     }
 
     public String getLogradouro() {
