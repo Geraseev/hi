@@ -26,14 +26,18 @@ DROP TABLE IF EXISTS `imovel`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `imovel` (
   `idimovel` int NOT NULL AUTO_INCREMENT,
+  `logradouro` varchar(45) NOT NULL,
+  `numero` int DEFAULT NULL,
+  `bairro` varchar(45) DEFAULT NULL,
+  `cidade` varchar(45) NOT NULL,
+  `estado` varchar(45) NOT NULL,
+  `cep` int NOT NULL,
+  `complemento` varchar(45) DEFAULT NULL,
   `valor` varchar(45) DEFAULT NULL,
   `status` tinyint DEFAULT NULL,
-  `endereco_idendereco` int NOT NULL,
   PRIMARY KEY (`idimovel`),
-  UNIQUE KEY `idimovel_UNIQUE` (`idimovel`),
-  KEY `fk_imovel_endereco_idx` (`endereco_idendereco`),
-  CONSTRAINT `fk_imovel_endereco` FOREIGN KEY (`endereco_idendereco`) REFERENCES `endereco` (`idendereco`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  UNIQUE KEY `idendereco_UNIQUE` (`idimovel`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,6 +46,7 @@ CREATE TABLE `imovel` (
 
 LOCK TABLES `imovel` WRITE;
 /*!40000 ALTER TABLE `imovel` DISABLE KEYS */;
+INSERT INTO `imovel` VALUES (1,'casa',507,'sao miguel','marilia ','sp',17506290,'',NULL,NULL);
 /*!40000 ALTER TABLE `imovel` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -54,4 +59,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-04-08 20:36:22
+-- Dump completed on 2022-04-28 12:05:37

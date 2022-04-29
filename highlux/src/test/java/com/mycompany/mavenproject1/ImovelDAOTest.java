@@ -4,6 +4,8 @@
  */
 package com.mycompany.mavenproject1;
 
+import DAO.ImovelDAO;
+import javabeans.Imovel;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -17,6 +19,9 @@ public class ImovelDAOTest {
     
     @Test
     public void TestAdicionarExtra() {
+        ImovelDAO id = new ImovelDAO();
+        Imovel i = new Imovel();
+        
         
     }
     
