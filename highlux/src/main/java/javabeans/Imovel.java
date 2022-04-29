@@ -1,7 +1,6 @@
 package javabeans;
 
 /**
- *
  * @author lgera
  */
 public class Imovel {
