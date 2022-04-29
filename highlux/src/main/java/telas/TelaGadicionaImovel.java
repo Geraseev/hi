@@ -61,7 +61,7 @@ public class TelaGadicionaImovel extends javax.swing.JFrame {
         btnD = new javax.swing.JRadioButton();
         btnND = new javax.swing.JRadioButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel12.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
@@ -198,6 +198,7 @@ public class TelaGadicionaImovel extends javax.swing.JFrame {
             dao.adicionarImovel(obj);
 
             JOptionPane.showMessageDialog(null, "cadastro realizado com sucesso");
+            limpar();
         } catch (Exception e){
             JOptionPane.showMessageDialog(null, "falha" + e);
         }
@@ -261,6 +262,19 @@ public class TelaGadicionaImovel extends javax.swing.JFrame {
                 new TelaGadicionaImovel().setVisible(true);
             }
         });
+    }
+    
+    public void limpar(){
+        txtLog.setText("");
+        txtNum.setText("");
+        txtBairro.setText("");
+        txtCid.setText("");
+        txtCep.setText("");
+        txtComplemento.setText("");
+        txtEst.setText("");
+        txtVal.setText("");
+        buttonGroup1.clearSelection();
+        txtLog.requestFocus();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

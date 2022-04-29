@@ -70,7 +70,7 @@ public class TelaCadastro extends javax.swing.JFrame {
         jLabelTelefone = new javax.swing.JLabel();
         jFormattedTextFieldTelefone = new javax.swing.JFormattedTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabelCadastro.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         jLabelCadastro.setText("CADASTRO");

@@ -6,15 +6,40 @@
 package telas;
 
 import DAO.ImovelDAO;
+import java.util.List;
 import javabeans.Imovel;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author lgera
  */
 public class TelaGEditarImovel extends javax.swing.JFrame {
-
+    
+    public void Listar(){
+        try {
+            ImovelDAO dao = new ImovelDAO();
+            List<Imovel> listaU = dao.listarImovel();
+            DefaultTableModel modelo = (DefaultTableModel)tabela1.getModel();
+            modelo.setNumRows(0);
+            
+            for(Imovel v : listaU){
+                modelo.addRow(new Object[]{
+                v.getIdimovel(),
+                v.getLogradouro(),
+                v.getNumero(),
+                v.getComplemento(),
+                v.getBairro(),
+                v.getCidade(),
+                v.getEstado() ,
+                v.getStatus(),
+                v.getValor()
+                });
+            }
+        } catch (Exception e) {
+        }
+    }
     /**
      * Creates new form TelaGEditaImovel
      */
@@ -60,7 +85,12 @@ public class TelaGEditarImovel extends javax.swing.JFrame {
         btnD = new javax.swing.JRadioButton();
         btnND = new javax.swing.JRadioButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         jLabel2.setText("Logradouro: ");
@@ -173,11 +203,13 @@ public class TelaGEditarImovel extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(109, 109, 109)
+                .addGap(294, 294, 294)
+                .addComponent(jLabel11)
+                .addGap(18, 18, 18)
                 .addComponent(btnD)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(btnND)
-                .addContainerGap(151, Short.MAX_VALUE))
+                .addContainerGap(357, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -237,22 +269,20 @@ public class TelaGEditarImovel extends javax.swing.JFrame {
                         .addGroup(layout.createSequentialGroup()
                             .addGap(170, 170, 170)
                             .addComponent(jButton2))
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(50, 50, 50)
-                            .addComponent(jLabel11))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(10, 10, 10)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(0, 0, Short.MAX_VALUE))
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 903, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(327, Short.MAX_VALUE)
+                .addContainerGap(343, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnD)
-                    .addComponent(btnND))
+                    .addComponent(btnND)
+                    .addComponent(jLabel11))
                 .addGap(206, 206, 206))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -318,10 +348,7 @@ public class TelaGEditarImovel extends javax.swing.JFrame {
                             .addComponent(txtVal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createSequentialGroup()
                             .addGap(106, 106, 106)
-                            .addComponent(jButton2))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(46, 46, 46)
-                            .addComponent(jLabel11)))
+                            .addComponent(jButton2)))
                     .addGap(53, 53, 53)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
@@ -400,6 +427,10 @@ public class TelaGEditarImovel extends javax.swing.JFrame {
     private void btnNDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNDActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnNDActionPerformed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        Listar();
+    }//GEN-LAST:event_formWindowActivated
 
     /**
      * @param args the command line arguments
