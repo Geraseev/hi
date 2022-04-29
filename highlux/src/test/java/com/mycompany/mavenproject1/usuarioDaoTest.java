@@ -6,13 +6,9 @@ package com.mycompany.mavenproject1;
  */
 
 import DAO.UsuarioDAO;
-import collections.ConnectionMod;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.Disabled;
 import static org.mockito.Mockito.*;
 
 /**

@@ -15,8 +15,35 @@ public class Imovel {
     private String status;
     private String cep;
     private String complemento;
-    
-    
+
+    public Imovel(String logradouro, String numero, String bairro, String cidade, String estado, String valor, String status, String cep, String complemento) {
+        this.logradouro = logradouro;
+        this.numero = numero;
+        this.bairro = bairro;
+        this.cidade = cidade;
+        this.estado = estado;
+        this.valor = valor;
+        this.status = status;
+        this.cep = cep;
+        this.complemento = complemento;
+    }
+
+    public Imovel() {
+        
+    }
+
+    public Imovel(int idimovel, String logradouro, String numero, String bairro, String cidade, String estado, String valor, String status, String cep, String complemento) {
+        this.idimovel = idimovel;
+        this.logradouro = logradouro;
+        this.numero = numero;
+        this.bairro = bairro;
+        this.cidade = cidade;
+        this.estado = estado;
+        this.valor = valor;
+        this.status = status;
+        this.cep = cep;
+        this.complemento = complemento;
+    }
 
     public int getIdimovel() {
         return idimovel;
