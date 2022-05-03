@@ -367,9 +367,12 @@ public class TelaGEditarImovel extends javax.swing.JFrame {
             obj.setValor(txtVal.getText());
             
             ImovelDAO dao = new ImovelDAO();
-            dao.editarImovel(obj);
+            if(dao.editarImovel(obj)){
+                JOptionPane.showMessageDialog(null, "Edição realizada com sucesso!");
+            } else {
+                JOptionPane.showMessageDialog(null, "Não foi possível editar o imóvel");
+            }
 
-            JOptionPane.showMessageDialog(null, "Edição realizada com sucesso!");
         } catch (Exception e){
             JOptionPane.showMessageDialog(null, "Erro ao editar o imóvel" + e);
         }
