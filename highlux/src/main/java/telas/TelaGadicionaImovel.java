@@ -1,6 +1,7 @@
 
 package telas;
 import DAO.ImovelDAO;
+import java.awt.event.KeyEvent;
 import javabeans.Imovel;
 import javax.swing.JOptionPane;
 import java.util.*;
@@ -339,7 +340,7 @@ public class TelaGadicionaImovel extends javax.swing.JFrame {
 
     private void txtCepKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCepKeyPressed
         char c = evt.getKeyChar();
-        
+            
         if(Character.isLetter(c)) {
             txtCep.setEditable(false);
         } else {
@@ -359,18 +360,23 @@ public class TelaGadicionaImovel extends javax.swing.JFrame {
 
     private void txtLogKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtLogKeyPressed
         char c = evt.getKeyChar();
-        
-        if(Character.isLetter(c)) {
+
+        if(Character.isLetter(c)
+                || evt.getExtendedKeyCode() == KeyEvent.VK_BACK_SPACE
+                || evt.getExtendedKeyCode() == KeyEvent.VK_DELETE) {
             txtLog.setEditable(true);
         } else {
             txtLog.setEditable(false);
+            
         }
     }//GEN-LAST:event_txtLogKeyPressed
 
     private void txtBairroKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBairroKeyPressed
         char c = evt.getKeyChar();
         
-        if(Character.isLetter(c)) {
+        if(Character.isLetter(c)  
+                || evt.getExtendedKeyCode() == KeyEvent.VK_BACK_SPACE
+                || evt.getExtendedKeyCode() == KeyEvent.VK_DELETE) {
             txtBairro.setEditable(true);
         } else {
             txtBairro.setEditable(false);
@@ -379,8 +385,10 @@ public class TelaGadicionaImovel extends javax.swing.JFrame {
 
     private void txtCidKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCidKeyPressed
         char c = evt.getKeyChar();
-        
-        if(Character.isLetter(c)) {
+               
+        if(Character.isLetter(c)
+                || evt.getExtendedKeyCode() == KeyEvent.VK_BACK_SPACE
+                || evt.getExtendedKeyCode() == KeyEvent.VK_DELETE) {
             txtCid.setEditable(true);
         } else {
             txtCid.setEditable(false);
@@ -390,7 +398,9 @@ public class TelaGadicionaImovel extends javax.swing.JFrame {
     private void txtEstKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEstKeyPressed
         char c = evt.getKeyChar();
         
-        if(Character.isLetter(c)) {
+        if(Character.isLetter(c)
+                || evt.getExtendedKeyCode() == KeyEvent.VK_BACK_SPACE
+                || evt.getExtendedKeyCode() == KeyEvent.VK_DELETE) {
             txtEst.setEditable(true);
         } else {
             txtEst.setEditable(false);
