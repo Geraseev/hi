@@ -3,6 +3,7 @@ package telas;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import DAO.ImovelDAO;
+import java.awt.event.KeyEvent;
 import javabeans.Imovel;
 import javax.swing.JOptionPane;
 import javax.swing.text.AttributeSet;
@@ -32,6 +33,7 @@ public class TelaGConsultarImovel extends javax.swing.JFrame {
                 });
             }
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"Erro ao buscar cidade!");
         }
     }
     public TelaGConsultarImovel() {
@@ -212,7 +214,7 @@ public class TelaGConsultarImovel extends javax.swing.JFrame {
                     });
                 }
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "Cidade não encontrada!"); 
+                JOptionPane.showMessageDialog(null, "Erro ao buscar cidade!"); 
             }
         } else {
             JOptionPane.showMessageDialog(null, "Preencha a cidade e tente novamente!");
@@ -222,7 +224,9 @@ public class TelaGConsultarImovel extends javax.swing.JFrame {
     private void txtConKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtConKeyPressed
         char c = evt.getKeyChar();
         
-        if(Character.isLetter(c)) {
+        if(Character.isLetter(c)
+                || evt.getExtendedKeyCode() == KeyEvent.VK_BACK_SPACE
+                || evt.getExtendedKeyCode() == KeyEvent.VK_DELETE) {
             txtCon.setEditable(true);
         } else {
             txtCon.setEditable(false);
