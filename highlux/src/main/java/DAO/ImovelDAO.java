@@ -61,7 +61,7 @@ public class ImovelDAO {
                 v.setBairro(rs.getString("bairro"));
                 v.setCidade(rs.getString("cidade"));
                 v.setEstado(rs.getString("estado"));
-                
+                v.setCep(rs.getString("cep"));
                 v.setValor(rs.getString("valor"));
                 v.setStatus(rs.getString("status"));
                 

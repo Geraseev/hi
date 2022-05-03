@@ -28,6 +28,7 @@ public class TelaGConsultarImovel extends javax.swing.JFrame {
                 v.getBairro(),
                 v.getCidade(),
                 v.getEstado() ,
+                v.getCep(),
                 v.getStatus(),
                 v.getValor()
                 });
@@ -117,13 +118,13 @@ public class TelaGConsultarImovel extends javax.swing.JFrame {
 
         tabela1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Logradouro", "Número", "Complemento", "Bairro", "Cidade", "Estado", "Status", "Valor"
+                "ID", "Logradouro", "Número", "Complemento", "Bairro", "Cidade", "Estado", "CEP", "Status", "Valor"
             }
         ));
         jScrollPane1.setViewportView(tabela1);
@@ -193,8 +194,6 @@ public class TelaGConsultarImovel extends javax.swing.JFrame {
         String cidade = txtCon.getText();
         if (!cidade.isEmpty()){
             try {
-
-
                 ImovelDAO dao = new ImovelDAO();
                 List<Imovel> listaI = dao.listarEnderecoPorCid(cidade);
                 DefaultTableModel modelo = (DefaultTableModel)tabela1.getModel();
@@ -209,6 +208,7 @@ public class TelaGConsultarImovel extends javax.swing.JFrame {
                     v.getBairro(),
                     v.getCidade(),
                     v.getEstado() ,
+                    v.getCep(),
                     v.getStatus(),
                     v.getValor()
                     });
