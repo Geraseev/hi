@@ -1,8 +1,5 @@
 package javabeans;
 
-/**
- * @author lgera
- */
 public class Imovel {
     private int idimovel;
     private String logradouro;

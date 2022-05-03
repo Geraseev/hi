@@ -12,14 +12,11 @@ import javax.swing.text.MaskFormatter;
 import javax.swing.text.PlainDocument;
 
 public class TelaCadastro extends javax.swing.JFrame {
-
-    MaskFormatter mascaraTelefone;
     
     public TelaCadastro() throws ParseException {
         this.setResizable(false);
         initComponents();
         
-        mascaraTelefone = new MaskFormatter("(##)#####-####");
         myInitComponents();
     }
 
@@ -125,6 +122,11 @@ public class TelaCadastro extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        jFormattedTextFieldTelefone.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFormattedTextFieldTelefoneActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -257,6 +259,10 @@ public class TelaCadastro extends javax.swing.JFrame {
     private void jPasswordFieldSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordFieldSenhaKeyPressed
 
     }//GEN-LAST:event_jPasswordFieldSenhaKeyPressed
+
+    private void jFormattedTextFieldTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldTelefoneActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFormattedTextFieldTelefoneActionPerformed
 
     /**
      * @param args the command line arguments

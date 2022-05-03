@@ -9,11 +9,6 @@ import java.util.List;
 import javabeans.Imovel;
 import javax.swing.JOptionPane;
 
-
-/**
- *
- * @author lgera
- */
 public class ImovelDAO {
     private Connection conecta;
     
