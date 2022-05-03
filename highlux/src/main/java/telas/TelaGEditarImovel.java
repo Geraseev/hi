@@ -33,9 +33,9 @@ public class TelaGEditarImovel extends javax.swing.JFrame {
                 v.getBairro(),
                 v.getCidade(),
                 v.getEstado() ,
+                v.getCep(),
                 v.getStatus(),
                 v.getValor()
-                //falta cep
                 });
             }
         } catch (Exception e) {
@@ -58,31 +58,33 @@ public class TelaGEditarImovel extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        jLabel2 = new javax.swing.JLabel();
+        jLabelLog = new javax.swing.JLabel();
         txtLog = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
+        jLabelNum = new javax.swing.JLabel();
         txtNum = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
+        jLabelBairro = new javax.swing.JLabel();
         txtBairro = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        txtCid = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
+        jLabelCid = new javax.swing.JLabel();
+        txtCep = new javax.swing.JTextField();
+        jLabelEst = new javax.swing.JLabel();
         txtEst = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
+        jLabelComp = new javax.swing.JLabel();
         txtComplemento = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         txtVal = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        jLabelInfo = new javax.swing.JLabel();
+        jLabelStatus = new javax.swing.JLabel();
+        jLabelValor = new javax.swing.JLabel();
+        jButtonEditar = new javax.swing.JButton();
         txtCod = new javax.swing.JTextField();
-        jLabel13 = new javax.swing.JLabel();
+        jLabelCod = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tabela1 = new javax.swing.JTable();
         btnD = new javax.swing.JRadioButton();
         btnND = new javax.swing.JRadioButton();
+        jLabelCep = new javax.swing.JLabel();
+        txtCid = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -91,8 +93,8 @@ public class TelaGEditarImovel extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
-        jLabel2.setText("Logradouro: ");
+        jLabelLog.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        jLabelLog.setText("Logradouro: ");
 
         txtLog.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,11 +102,11 @@ public class TelaGEditarImovel extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
-        jLabel3.setText("Número: ");
+        jLabelNum.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        jLabelNum.setText("Número: ");
 
-        jLabel4.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
-        jLabel4.setText("Bairro: ");
+        jLabelBairro.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        jLabelBairro.setText("Bairro: ");
 
         txtBairro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,14 +114,14 @@ public class TelaGEditarImovel extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
-        jLabel5.setText("Cidade: ");
+        jLabelCid.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        jLabelCid.setText("Cidade: ");
 
-        jLabel6.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
-        jLabel6.setText("Estado: ");
+        jLabelEst.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        jLabelEst.setText("Estado: ");
 
-        jLabel8.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
-        jLabel8.setText("Complemento: ");
+        jLabelComp.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        jLabelComp.setText("Complemento: ");
 
         txtComplemento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,19 +138,19 @@ public class TelaGEditarImovel extends javax.swing.JFrame {
             }
         });
 
-        jLabel10.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        jLabel10.setText("Outras informações");
+        jLabelInfo.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jLabelInfo.setText("Outras informações");
 
-        jLabel11.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
-        jLabel11.setText("Status: ");
+        jLabelStatus.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        jLabelStatus.setText("Status: ");
 
-        jLabel12.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
-        jLabel12.setText("Valor: ");
+        jLabelValor.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        jLabelValor.setText("Valor: ");
 
-        jButton2.setText("Editar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jButtonEditar.setText("Editar");
+        jButtonEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButtonEditarActionPerformed(evt);
             }
         });
 
@@ -159,18 +161,18 @@ public class TelaGEditarImovel extends javax.swing.JFrame {
             }
         });
 
-        jLabel13.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
-        jLabel13.setText("Código: ");
+        jLabelCod.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        jLabelCod.setText("Código: ");
 
         tabela1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Código", "Logradouro", "Numero", "Complemento", "Bairro", "Cidade", "Estado", "Status", "Valor"
+                "Código", "Logradouro", "Numero", "Complemento", "Bairro", "Cidade", "Estado", "CEP", "Status", "Valor"
             }
         ));
         tabela1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -194,6 +196,9 @@ public class TelaGEditarImovel extends javax.swing.JFrame {
             }
         });
 
+        jLabelCep.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        jLabelCep.setText("CEP: ");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -201,50 +206,51 @@ public class TelaGEditarImovel extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(251, 251, 251)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(38, 38, 38)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel5)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txtCid, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(1, 1, 1)
-                                        .addComponent(jLabel6)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txtEst, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel8)
-                                    .addComponent(jLabel13)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel3))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtComplemento, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtNum, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtLog, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtCod, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(294, 294, 294)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel12)
+                            .addComponent(jLabelValor)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(60, 60, 60)
                                 .addComponent(txtVal, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(120, 120, 120)
-                                .addComponent(jButton2))
+                                .addComponent(jButtonEditar))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel11)
+                                .addComponent(jLabelStatus)
                                 .addGap(18, 18, 18)
                                 .addComponent(btnD)
                                 .addGap(18, 18, 18)
-                                .addComponent(btnND)))))
+                                .addComponent(btnND))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(251, 251, 251)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabelEst)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtEst, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(1, 1, 1))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabelBairro)
+                                            .addComponent(jLabelComp)
+                                            .addComponent(jLabelCod)
+                                            .addComponent(jLabelLog)
+                                            .addComponent(jLabelNum)
+                                            .addComponent(jLabelCep))
+                                        .addGap(18, 18, 18))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabelCid)
+                                        .addGap(18, 18, 18)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtCid, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtComplemento, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtNum, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtLog, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtCod, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtCep, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap(373, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -255,7 +261,7 @@ public class TelaGEditarImovel extends javax.swing.JFrame {
                             .addComponent(jLabel9))
                         .addGroup(layout.createSequentialGroup()
                             .addGap(140, 140, 140)
-                            .addComponent(jLabel10))
+                            .addComponent(jLabelInfo))
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(0, 0, Short.MAX_VALUE))
                 .addGroup(layout.createSequentialGroup()
@@ -268,49 +274,49 @@ public class TelaGEditarImovel extends javax.swing.JFrame {
                 .addGap(61, 61, 61)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(txtCod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelCod, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtLog, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                    .addComponent(jLabelLog))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(txtNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
+                    .addComponent(jLabelNum))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtComplemento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8))
+                    .addComponent(jLabelComp))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(2, 2, 2)
-                        .addComponent(jLabel4))
+                        .addComponent(jLabelBairro))
                     .addComponent(txtBairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(6, 6, 6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtCep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelCep))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtCid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelCid))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addComponent(jLabel5))
-                    .addComponent(txtCid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(6, 6, 6)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addComponent(jLabel6))
-                    .addComponent(txtEst, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
+                    .addComponent(txtEst, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelEst))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnD)
                     .addComponent(btnND)
-                    .addComponent(jLabel11))
+                    .addComponent(jLabelStatus))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel12)
+                    .addComponent(jLabelValor)
                     .addComponent(txtVal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(30, 30, 30)
-                        .addComponent(jButton2)))
+                        .addComponent(jButtonEditar)))
                 .addGap(135, 135, 135))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -319,7 +325,7 @@ public class TelaGEditarImovel extends javax.swing.JFrame {
                     .addGap(274, 274, 274)
                     .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(jLabel10)
+                    .addComponent(jLabelInfo)
                     .addGap(148, 148, 148)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
@@ -340,7 +346,7 @@ public class TelaGEditarImovel extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtValActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
         try{
             Imovel obj = new Imovel();
 
@@ -354,20 +360,20 @@ public class TelaGEditarImovel extends javax.swing.JFrame {
             if(btnD.isSelected()){
                 obj.setStatus("1");   
             }
-            else{
+            if(btnND.isSelected()){
                 obj.setStatus("2");   
             }
+            obj.setCep(txtCep.getText());
             obj.setValor(txtVal.getText());
             
-
             ImovelDAO dao = new ImovelDAO();
             dao.editarImovel(obj);
 
-            JOptionPane.showMessageDialog(null, "Edição realizada com sucesso");
+            JOptionPane.showMessageDialog(null, "Edição realizada com sucesso!");
         } catch (Exception e){
-            JOptionPane.showMessageDialog(null, "falha" + e);
+            JOptionPane.showMessageDialog(null, "Erro ao editar o imóvel" + e);
         }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jButtonEditarActionPerformed
 
     private void txtCodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodActionPerformed
         // TODO add your handling code here:
@@ -379,7 +385,7 @@ public class TelaGEditarImovel extends javax.swing.JFrame {
         txtNum.setText(tabela1.getValueAt(tabela1.getSelectedRow(), 2).toString());
         txtComplemento.setText(tabela1.getValueAt(tabela1.getSelectedRow(), 3).toString());
         txtBairro.setText(tabela1.getValueAt(tabela1.getSelectedRow(), 4).toString());
-        txtCid.setText(tabela1.getValueAt(tabela1.getSelectedRow(), 5).toString());
+        txtCep.setText(tabela1.getValueAt(tabela1.getSelectedRow(), 5).toString());
         txtEst.setText(tabela1.getValueAt(tabela1.getSelectedRow(), 6).toString());
         //btnD.setText(tabela1.getValueAt(tabela1.getSelectedRow(), 7).toString());
         txtVal.setText(tabela1.getValueAt(tabela1.getSelectedRow(), 8).toString());
@@ -441,22 +447,24 @@ public class TelaGEditarImovel extends javax.swing.JFrame {
     private javax.swing.JRadioButton btnD;
     private javax.swing.JRadioButton btnND;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel8;
+    private javax.swing.JButton jButtonEditar;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelBairro;
+    private javax.swing.JLabel jLabelCep;
+    private javax.swing.JLabel jLabelCid;
+    private javax.swing.JLabel jLabelCod;
+    private javax.swing.JLabel jLabelComp;
+    private javax.swing.JLabel jLabelEst;
+    private javax.swing.JLabel jLabelInfo;
+    private javax.swing.JLabel jLabelLog;
+    private javax.swing.JLabel jLabelNum;
+    private javax.swing.JLabel jLabelStatus;
+    private javax.swing.JLabel jLabelValor;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable tabela1;
     private javax.swing.JTextField txtBairro;
+    private javax.swing.JTextField txtCep;
     private javax.swing.JTextField txtCid;
     private javax.swing.JTextField txtCod;
     private javax.swing.JTextField txtComplemento;

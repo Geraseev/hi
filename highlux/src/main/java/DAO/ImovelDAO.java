@@ -147,7 +147,7 @@ public class ImovelDAO {
     
     public boolean editarImovel(Imovel obj){
         try {
-            String cmdsql = "update imovel set logradouro=?, numero=?, bairro=?, cidade=?, estado=?, complemento=?, status=?, valor=? where idimovel=?";
+            String cmdsql = "update imovel set logradouro=?, numero=?, bairro=?, cidade=?, estado=?, cep=?, complemento=?, status=?, valor=? where idimovel=?";
             
             PreparedStatement stmt = conecta.prepareStatement(cmdsql);
             
@@ -156,17 +156,18 @@ public class ImovelDAO {
             stmt.setString(3, obj.getBairro());
             stmt.setString(4, obj.getCidade());
             stmt.setString(5, obj.getEstado());
-            stmt.setString(6, obj.getComplemento());
-            stmt.setString(7, obj.getStatus());
-            stmt.setString(8, obj.getValor());
-            stmt.setInt(9, obj.getIdimovel());
+            stmt.setString(6, obj.getCep());
+            stmt.setString(7, obj.getComplemento());
+            stmt.setString(8, obj.getStatus());
+            stmt.setString(9, obj.getValor());
+            stmt.setInt(10, obj.getIdimovel());
             
             stmt.execute();
             
             stmt.close();
             return true;
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro" + e);
+            JOptionPane.showMessageDialog(null, "Erro ao editar Imóvel!" + e);
             return false;
         }
     }
