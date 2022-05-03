@@ -5,6 +5,9 @@ import javax.swing.table.DefaultTableModel;
 import DAO.ImovelDAO;
 import javabeans.Imovel;
 import javax.swing.JOptionPane;
+import javax.swing.text.AttributeSet;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.PlainDocument;
 
 public class TelaGConsultarImovel extends javax.swing.JFrame {
 
@@ -33,6 +36,37 @@ public class TelaGConsultarImovel extends javax.swing.JFrame {
     }
     public TelaGConsultarImovel() {
         initComponents();
+        
+        myInitComponents();
+    }
+    
+    public void myInitComponents() {
+        txtCon.setDocument(new JTextFieldLimit(45));
+    }
+
+        class JTextFieldLimit extends PlainDocument {
+
+        private int limit;
+
+        JTextFieldLimit(int limit) {
+            super();
+            this.limit = limit;
+        }
+
+        JTextFieldLimit(int limit, boolean upper) {
+            super();
+            this.limit = limit;
+        }
+
+        public void insertString(int offset, String str, AttributeSet attr) throws BadLocationException {
+            if (str == null) {
+                return;
+            }
+
+            if ((getLength() + str.length()) <= limit) {
+                super.insertString(offset, str, attr);
+            }
+        }
     }
 
     /**
@@ -52,22 +86,31 @@ public class TelaGConsultarImovel extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(600, 350));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
             }
         });
 
+        txtCon.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtCon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtConActionPerformed(evt);
             }
         });
+        txtCon.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtConKeyPressed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Consulta por cidade");
 
         jLabel1.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Consulta de Imóveis");
 
         tabela1.setModel(new javax.swing.table.DefaultTableModel(
@@ -145,31 +188,46 @@ public class TelaGConsultarImovel extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowActivated
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        try {
-            String cidade = txtCon.getText();
-            
-            ImovelDAO dao = new ImovelDAO();
-            List<Imovel> listaI = dao.listarEnderecoPorCid(cidade);
-            DefaultTableModel modelo = (DefaultTableModel)tabela1.getModel();
-            modelo.setNumRows(0);
-            
-            for(Imovel v : listaI){
-                modelo.addRow(new Object[]{
-                v.getIdimovel(),
-                v.getLogradouro(),
-                v.getNumero(),
-                v.getComplemento(),
-                v.getBairro(),
-                v.getCidade(),
-                v.getEstado() ,
-                v.getStatus(),
-                v.getValor()
-                });
+        String cidade = txtCon.getText();
+        if (!cidade.isEmpty()){
+            try {
+
+
+                ImovelDAO dao = new ImovelDAO();
+                List<Imovel> listaI = dao.listarEnderecoPorCid(cidade);
+                DefaultTableModel modelo = (DefaultTableModel)tabela1.getModel();
+                modelo.setNumRows(0);
+
+                for(Imovel v : listaI){
+                    modelo.addRow(new Object[]{
+                    v.getIdimovel(),
+                    v.getLogradouro(),
+                    v.getNumero(),
+                    v.getComplemento(),
+                    v.getBairro(),
+                    v.getCidade(),
+                    v.getEstado() ,
+                    v.getStatus(),
+                    v.getValor()
+                    });
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Cidade não encontrada!"); 
             }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Local não encontrado"); 
+        } else {
+            JOptionPane.showMessageDialog(null, "Preencha a cidade e tente novamente!");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txtConKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtConKeyPressed
+        char c = evt.getKeyChar();
+        
+        if(Character.isLetter(c)) {
+            txtCon.setEditable(true);
+        } else {
+            txtCon.setEditable(false);
+        }
+    }//GEN-LAST:event_txtConKeyPressed
 
     /**
      * @param args the command line arguments
