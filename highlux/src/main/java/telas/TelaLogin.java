@@ -145,11 +145,16 @@ public class TelaLogin extends javax.swing.JFrame {
         usuario = jTextFieldUsuario.getText();
         senha = String.valueOf(jPasswordFieldSenha.getPassword());
         
-        UsuarioDAO usuariodao = new UsuarioDAO();
-        boolean verificar = usuariodao.efetuarLogin(usuario,senha);
-        if(verificar==true){
-            dispose();
+        if(!usuario.isEmpty() && !senha.isEmpty()) {
+            UsuarioDAO usuariodao = new UsuarioDAO();
+            boolean verificar = usuariodao.efetuarLogin(usuario,senha);
+            if(verificar==true){
+                dispose();
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos e tente novamente");
         }
+        
     }//GEN-LAST:event_jButtonLoginActionPerformed
 
     private void jButtonCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastroActionPerformed
