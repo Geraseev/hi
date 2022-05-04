@@ -2,6 +2,7 @@
 package telas;
 
 import DAO.ImovelDAO;
+import java.awt.event.KeyEvent;
 import java.util.List;
 import javabeans.Imovel;
 import javax.swing.JOptionPane;
@@ -136,9 +137,20 @@ public class TelaGEditarImovel extends javax.swing.JFrame {
                 txtLogActionPerformed(evt);
             }
         });
+        txtLog.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtLogKeyPressed(evt);
+            }
+        });
 
         jLabelNum.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         jLabelNum.setText("Número: ");
+
+        txtNum.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtNumKeyPressed(evt);
+            }
+        });
 
         jLabelBairro.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         jLabelBairro.setText("Bairro: ");
@@ -148,12 +160,29 @@ public class TelaGEditarImovel extends javax.swing.JFrame {
                 txtBairroActionPerformed(evt);
             }
         });
+        txtBairro.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtBairroKeyPressed(evt);
+            }
+        });
 
         jLabelCid.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         jLabelCid.setText("Cidade: ");
 
+        txtCep.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtCepKeyPressed(evt);
+            }
+        });
+
         jLabelEst.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         jLabelEst.setText("Estado: ");
+
+        txtEst.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtEstKeyPressed(evt);
+            }
+        });
 
         jLabelComp.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         jLabelComp.setText("Complemento: ");
@@ -163,6 +192,11 @@ public class TelaGEditarImovel extends javax.swing.JFrame {
                 txtComplementoActionPerformed(evt);
             }
         });
+        txtComplemento.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtComplementoKeyPressed(evt);
+            }
+        });
 
         jLabel9.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         jLabel9.setText("Endereço");
@@ -170,6 +204,11 @@ public class TelaGEditarImovel extends javax.swing.JFrame {
         txtVal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtValActionPerformed(evt);
+            }
+        });
+        txtVal.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtValKeyPressed(evt);
             }
         });
 
@@ -233,6 +272,12 @@ public class TelaGEditarImovel extends javax.swing.JFrame {
 
         jLabelCep.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         jLabelCep.setText("CEP: ");
+
+        txtCid.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtCidKeyPressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -470,6 +515,89 @@ public class TelaGEditarImovel extends javax.swing.JFrame {
     private void txtBairroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBairroActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtBairroActionPerformed
+
+    private void txtLogKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtLogKeyPressed
+        char c = evt.getKeyChar();
+
+        if(Character.isLetter(c)
+                || evt.getExtendedKeyCode() == KeyEvent.VK_BACK_SPACE
+                || evt.getExtendedKeyCode() == KeyEvent.VK_DELETE) {
+            txtLog.setEditable(true);
+        } else {
+            txtLog.setEditable(false);
+            
+        }
+    }//GEN-LAST:event_txtLogKeyPressed
+
+    private void txtNumKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumKeyPressed
+        char c = evt.getKeyChar();
+        
+        if(Character.isLetter(c)) {
+            txtNum.setEditable(false);
+        } else {
+            txtNum.setEditable(true);
+        }
+    }//GEN-LAST:event_txtNumKeyPressed
+
+    private void txtComplementoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtComplementoKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtComplementoKeyPressed
+
+    private void txtBairroKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBairroKeyPressed
+        char c = evt.getKeyChar();
+        
+        if(Character.isLetter(c)  
+                || evt.getExtendedKeyCode() == KeyEvent.VK_BACK_SPACE
+                || evt.getExtendedKeyCode() == KeyEvent.VK_DELETE) {
+            txtBairro.setEditable(true);
+        } else {
+            txtBairro.setEditable(false);
+        }
+    }//GEN-LAST:event_txtBairroKeyPressed
+
+    private void txtCepKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCepKeyPressed
+        char c = evt.getKeyChar();
+            
+        if(Character.isLetter(c)) {
+            txtCep.setEditable(false);
+        } else {
+            txtCep.setEditable(true);
+        }
+    }//GEN-LAST:event_txtCepKeyPressed
+
+    private void txtCidKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCidKeyPressed
+        char c = evt.getKeyChar();
+               
+        if(Character.isLetter(c)
+                || evt.getExtendedKeyCode() == KeyEvent.VK_BACK_SPACE
+                || evt.getExtendedKeyCode() == KeyEvent.VK_DELETE) {
+            txtCid.setEditable(true);
+        } else {
+            txtCid.setEditable(false);
+        }
+    }//GEN-LAST:event_txtCidKeyPressed
+
+    private void txtEstKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEstKeyPressed
+        char c = evt.getKeyChar();
+        
+        if(Character.isLetter(c)
+                || evt.getExtendedKeyCode() == KeyEvent.VK_BACK_SPACE
+                || evt.getExtendedKeyCode() == KeyEvent.VK_DELETE) {
+            txtEst.setEditable(true);
+        } else {
+            txtEst.setEditable(false);
+        }
+    }//GEN-LAST:event_txtEstKeyPressed
+
+    private void txtValKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtValKeyPressed
+        char c = evt.getKeyChar();
+        
+        if(Character.isLetter(c)) {
+            txtVal.setEditable(false);
+        } else {
+            txtVal.setEditable(true);
+        }
+    }//GEN-LAST:event_txtValKeyPressed
 
     /**
      * @param args the command line arguments
