@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package telas;
 
 import DAO.ImovelDAO;
@@ -10,11 +6,12 @@ import java.util.List;
 import javabeans.Imovel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.text.AttributeSet;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.PlainDocument;
+import validacao.validacaoEditImovel;
 
-/**
- *
- * @author lgera
- */
+
 public class TelaGEditarImovel extends javax.swing.JFrame {
     
     public void Listar(){
@@ -46,6 +43,44 @@ public class TelaGEditarImovel extends javax.swing.JFrame {
      */
     public TelaGEditarImovel() {
         initComponents();
+        
+        myInitComponents();
+    }
+    
+    public void myInitComponents() {
+        txtLog.setDocument(new JTextFieldLimit(45));
+        txtNum.setDocument(new JTextFieldLimit(4));
+        txtBairro.setDocument(new JTextFieldLimit(45));
+        txtCid.setDocument(new JTextFieldLimit(30));
+        txtEst.setDocument(new JTextFieldLimit(25));
+        txtCep.setDocument(new JTextFieldLimit(8));
+        txtComplemento.setDocument(new JTextFieldLimit(45));
+        txtVal.setDocument(new JTextFieldLimit(45));
+    }
+
+        class JTextFieldLimit extends PlainDocument {
+
+        private int limit;
+
+        JTextFieldLimit(int limit) {
+            super();
+            this.limit = limit;
+        }
+
+        JTextFieldLimit(int limit, boolean upper) {
+            super();
+            this.limit = limit;
+        }
+
+        public void insertString(int offset, String str, AttributeSet attr) throws BadLocationException {
+            if (str == null) {
+                return;
+            }
+
+            if ((getLength() + str.length()) <= limit) {
+                super.insertString(offset, str, attr);
+            }
+        }
     }
 
     /**
@@ -347,24 +382,50 @@ public class TelaGEditarImovel extends javax.swing.JFrame {
     }//GEN-LAST:event_txtValActionPerformed
 
     private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
+        int codigo = Integer.parseInt(txtCod.getText());
+        String logradouro = txtLog.getText();
+        String numero = txtNum.getText();
+        String bairro = txtBairro.getText();
+        String cidade = txtCid.getText();
+        String estado = txtEst.getText();
+        String cep = txtCep.getText();
+        String complemento = txtComplemento.getText();
+        String status = "";
+        if(btnD.isSelected()){
+            status = "1";   
+        }
+        if(btnND.isSelected()){
+            status = "2";   
+        }
+        String valor = txtVal.getText();
+        
+        validacaoEditImovel validador = new validacaoEditImovel();
+        if(validador.valida(
+                logradouro,
+                numero,
+                bairro,
+                cidade,
+                estado,
+                cep,
+                complemento,
+                status,
+                valor
+            )){
+        }
+        
         try{
             Imovel obj = new Imovel();
 
-            obj.setIdimovel(Integer.parseInt(txtCod.getText()));
-            obj.setLogradouro(txtLog.getText());
-            obj.setNumero(txtNum.getText());
-            obj.setComplemento(txtComplemento.getText());
-            obj.setBairro(txtBairro.getText());
-            obj.setCidade(txtCid.getText());
-            obj.setEstado(txtEst.getText());
-            if(btnD.isSelected()){
-                obj.setStatus("1");   
-            }
-            if(btnND.isSelected()){
-                obj.setStatus("2");   
-            }
-            obj.setCep(txtCep.getText());
-            obj.setValor(txtVal.getText());
+            obj.setIdimovel(codigo);
+            obj.setLogradouro(logradouro);
+            obj.setNumero(numero);
+            obj.setComplemento(complemento);
+            obj.setBairro(bairro);
+            obj.setCidade(cidade);
+            obj.setEstado(estado);
+            obj.setStatus(status);   
+            obj.setCep(cep);
+            obj.setValor(valor);
             
             ImovelDAO dao = new ImovelDAO();
             if(dao.editarImovel(obj)){
@@ -372,7 +433,6 @@ public class TelaGEditarImovel extends javax.swing.JFrame {
             } else {
                 JOptionPane.showMessageDialog(null, "Não foi possível editar o imóvel");
             }
-
         } catch (Exception e){
             JOptionPane.showMessageDialog(null, "Erro ao editar o imóvel" + e);
         }
@@ -388,10 +448,11 @@ public class TelaGEditarImovel extends javax.swing.JFrame {
         txtNum.setText(tabela1.getValueAt(tabela1.getSelectedRow(), 2).toString());
         txtComplemento.setText(tabela1.getValueAt(tabela1.getSelectedRow(), 3).toString());
         txtBairro.setText(tabela1.getValueAt(tabela1.getSelectedRow(), 4).toString());
-        txtCep.setText(tabela1.getValueAt(tabela1.getSelectedRow(), 5).toString());
+        txtCid.setText(tabela1.getValueAt(tabela1.getSelectedRow(), 5).toString());
         txtEst.setText(tabela1.getValueAt(tabela1.getSelectedRow(), 6).toString());
+        txtCep.setText(tabela1.getValueAt(tabela1.getSelectedRow(), 7).toString());
         //btnD.setText(tabela1.getValueAt(tabela1.getSelectedRow(), 7).toString());
-        txtVal.setText(tabela1.getValueAt(tabela1.getSelectedRow(), 8).toString());
+        txtVal.setText(tabela1.getValueAt(tabela1.getSelectedRow(), 9).toString());
     }//GEN-LAST:event_tabela1MouseClicked
 
     private void btnDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDActionPerformed
