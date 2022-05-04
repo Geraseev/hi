@@ -32,7 +32,7 @@ public class TelaGEditarImovel extends javax.swing.JFrame {
                 v.getCidade(),
                 v.getEstado() ,
                 v.getCep(),
-                v.getStatus(),
+                v.getStatusToString(),
                 v.getValor()
                 });
             }
@@ -264,6 +264,7 @@ public class TelaGEditarImovel extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tabela1);
 
+        buttonGroup1.add(btnD);
         btnD.setText("Disponível");
         btnD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -271,6 +272,7 @@ public class TelaGEditarImovel extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(btnND);
         btnND.setText("Não Disponivel");
         btnND.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -464,30 +466,29 @@ public class TelaGEditarImovel extends javax.swing.JFrame {
                 status,
                 valor
             )){
-        }
-        
-        try{
-            Imovel obj = new Imovel();
+                try{
+                Imovel obj = new Imovel();
 
-            obj.setIdimovel(codigo);
-            obj.setLogradouro(logradouro);
-            obj.setNumero(numero);
-            obj.setComplemento(complemento);
-            obj.setBairro(bairro);
-            obj.setCidade(cidade);
-            obj.setEstado(estado);
-            obj.setStatus(status);   
-            obj.setCep(cep);
-            obj.setValor(valor);
-            
-            ImovelDAO dao = new ImovelDAO();
-            if(dao.editarImovel(obj)){
-                JOptionPane.showMessageDialog(null, "Edição realizada com sucesso!");
-            } else {
-                JOptionPane.showMessageDialog(null, "Não foi possível editar o imóvel");
+                obj.setIdimovel(codigo);
+                obj.setLogradouro(logradouro);
+                obj.setNumero(numero);
+                obj.setComplemento(complemento);
+                obj.setBairro(bairro);
+                obj.setCidade(cidade);
+                obj.setEstado(estado);
+                obj.setStatus(status);   
+                obj.setCep(cep);
+                obj.setValor(valor);
+
+                ImovelDAO dao = new ImovelDAO();
+                if(dao.editarImovel(obj)){
+                    JOptionPane.showMessageDialog(null, "Edição realizada com sucesso!");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Não foi possível editar o imóvel");
+                }
+            } catch (Exception e){
+                JOptionPane.showMessageDialog(null, "Erro ao editar o imóvel" + e);
             }
-        } catch (Exception e){
-            JOptionPane.showMessageDialog(null, "Erro ao editar o imóvel" + e);
         }
     }//GEN-LAST:event_jButtonEditarActionPerformed
 

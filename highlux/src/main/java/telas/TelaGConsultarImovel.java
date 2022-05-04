@@ -29,7 +29,7 @@ public class TelaGConsultarImovel extends javax.swing.JFrame {
                 v.getCidade(),
                 v.getEstado() ,
                 v.getCep(),
-                v.getStatus(),
+                v.getStatusToString(),
                 v.getValor()
                 });
             }
@@ -217,7 +217,7 @@ public class TelaGConsultarImovel extends javax.swing.JFrame {
                     v.getCidade(),
                     v.getEstado() ,
                     v.getCep(),
-                    v.getStatus(),
+                    v.getStatusToString(),
                     v.getValor()
                     });
                 }

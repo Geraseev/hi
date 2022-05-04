@@ -70,6 +70,7 @@ public class TelaGAdicionaImovel extends javax.swing.JFrame {
         buttonGroup2 = new javax.swing.ButtonGroup();
         buttonGroup3 = new javax.swing.ButtonGroup();
         buttonGroup4 = new javax.swing.ButtonGroup();
+        buttonGroup5 = new javax.swing.ButtonGroup();
         jLabel12 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
@@ -227,6 +228,7 @@ public class TelaGAdicionaImovel extends javax.swing.JFrame {
         jLabel11.setText("Status: ");
         getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 341, -1, -1));
 
+        buttonGroup1.add(btnD);
         btnD.setText("Disponível");
         btnD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -235,6 +237,7 @@ public class TelaGAdicionaImovel extends javax.swing.JFrame {
         });
         getContentPane().add(btnD, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 338, -1, -1));
 
+        buttonGroup1.add(btnND);
         btnND.setText("Não disponível");
         btnND.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -247,8 +250,6 @@ public class TelaGAdicionaImovel extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        buttonGroup1.add(btnD);
-        buttonGroup1.add(btnND);
         
         String logradouro = txtLog.getText();
         String numero = txtNum.getText();
@@ -260,8 +261,7 @@ public class TelaGAdicionaImovel extends javax.swing.JFrame {
         String status = "";
         if(btnD.isSelected()){
             status = "1";   
-        }
-        if(btnND.isSelected()){
+        }else if(btnND.isSelected()){
             status = "2";   
         }
         String valor = txtVal.getText();
@@ -279,20 +279,15 @@ public class TelaGAdicionaImovel extends javax.swing.JFrame {
             try{
                 Imovel obj = new Imovel();
 
-                obj.setLogradouro(txtLog.getText());
-                obj.setNumero(txtNum.getText());
-                obj.setBairro(txtBairro.getText());
-                obj.setCidade(txtCid.getText());
-                obj.setEstado(txtEst.getText());
-                obj.setCep(txtCep.getText());
-                obj.setComplemento(txtComplemento.getText());
-                if(btnD.isSelected()){
-                    obj.setStatus("1");   
-                }
-                else{
-                    obj.setStatus("2");   
-                }
-                obj.setValor(txtVal.getText());
+                obj.setLogradouro(logradouro);
+                obj.setNumero(numero);
+                obj.setBairro(bairro);
+                obj.setCidade(cidade);
+                obj.setEstado(estado);
+                obj.setCep(cep);
+                obj.setComplemento(complemento);
+                obj.setStatus(status);   
+                obj.setValor(valor);
 
                 ImovelDAO dao = new ImovelDAO();
                 dao.adicionarImovel(obj);
@@ -471,6 +466,7 @@ public class TelaGAdicionaImovel extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.ButtonGroup buttonGroup4;
+    private javax.swing.ButtonGroup buttonGroup5;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

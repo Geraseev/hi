@@ -20,8 +20,18 @@ public class validacaoAddImovel {
                 !estado.isEmpty() &&
                 !cep.isEmpty() &&
                 !status.isEmpty() &&
-                !valor.isEmpty()){
-            return true;
+                !valor.isEmpty() ){
+            if(cep.length()==8){
+                if (Integer.parseInt(valor)!=0) {
+                    return true;
+                } else {
+                    JOptionPane.showMessageDialog(null, "O valor deve ser diferente \nde zero!");
+                    return false;
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "CEP precisa ter 8 números!");
+                return false;
+            }
         } else {
             JOptionPane.showMessageDialog(null, "Preencha todos os campos e \ntente novamente!");
         }
