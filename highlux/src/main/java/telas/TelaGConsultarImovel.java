@@ -126,7 +126,15 @@ public class TelaGConsultarImovel extends javax.swing.JFrame {
             new String [] {
                 "ID", "Logradouro", "Número", "Complemento", "Bairro", "Cidade", "Estado", "CEP", "Status", "Valor"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(tabela1);
 
         jButton1.setText("Enter");

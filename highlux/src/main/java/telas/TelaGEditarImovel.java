@@ -248,7 +248,15 @@ public class TelaGEditarImovel extends javax.swing.JFrame {
             new String [] {
                 "Código", "Logradouro", "Numero", "Complemento", "Bairro", "Cidade", "Estado", "CEP", "Status", "Valor"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         tabela1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tabela1MouseClicked(evt);
