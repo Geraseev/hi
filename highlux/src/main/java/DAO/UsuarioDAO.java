@@ -50,30 +50,34 @@ public class UsuarioDAO {
     
     public boolean efetuarCadastro(String usuario, String telefone, String senha) {
         try{
-            System.out.println(usuario);
-            String selectsql = "select * from usuario where login=?";
-            
-            PreparedStatement stmt = conecta.prepareStatement (selectsql);
-            
+            String selectsqluser = "select * from usuario where login=?";
+            PreparedStatement stmt = conecta.prepareStatement (selectsqluser);
             stmt.setString(1,usuario);
-            
             ResultSet rs = stmt.executeQuery();
+            
+            String selectsqlphone = "select * from usuario where telefone=?";
+            PreparedStatement stmt2 = conecta.prepareStatement (selectsqlphone);
+            stmt2.setString(1,telefone);
+            ResultSet rs2 = stmt2.executeQuery();
                       
             if(rs.next()) {
                 JOptionPane.showMessageDialog(null, "Usuario já existe!");
                 return false;
+            } else if (rs2.next()){
+                JOptionPane.showMessageDialog(null, "Telefone já cadastrado!");
+                return false;
             } else {
                 String newusersql = "insert into usuario(login,senha,telefone,flag) values (?,?,?,?)";          
                              
-                PreparedStatement stmt2 = conecta.prepareStatement(newusersql);
+                PreparedStatement stmt3 = conecta.prepareStatement(newusersql);
                 
-                stmt2.setString(1, usuario);
-                stmt2.setString(2, senha);
-                stmt2.setString(3, telefone);
-                stmt2.setBoolean(4, false);
+                stmt3.setString(1, usuario);
+                stmt3.setString(2, senha);
+                stmt3.setString(3, telefone);
+                stmt3.setBoolean(4, false);
                 
-                stmt2.executeUpdate();
-                stmt2.close();
+                stmt3.executeUpdate();
+                stmt3.close();
                 
                 
                 return true;
