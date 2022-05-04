@@ -58,6 +58,12 @@ public class Imovel {
     }
 
     public String getStatus() {
+        if ("1".equals(status)){
+            return "Disponível";
+        } else if ("2".equals(status)) {
+            return "Não disponivel";
+        }
+        
         return status;
     }
 
