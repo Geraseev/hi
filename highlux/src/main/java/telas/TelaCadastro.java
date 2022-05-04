@@ -10,6 +10,7 @@ import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.MaskFormatter;
 import javax.swing.text.PlainDocument;
+import validacao.validacaoCadastro;
 
 public class TelaCadastro extends javax.swing.JFrame {
     
@@ -226,34 +227,13 @@ public class TelaCadastro extends javax.swing.JFrame {
         repetirSenha = new String(jPasswordFieldRepetirSenha.getPassword()).trim();
         telefone = jFormattedTextFieldTelefone.getText().trim();
 
-        if (!jTextFieldUsuario.getText().equals("")
-                && !senha.equals("")
-                && !repetirSenha.equals("")
-                && !jFormattedTextFieldTelefone.getText().equals("")) {
-            if (jTextFieldUsuario.getText().length() > 4) {
-                if (jFormattedTextFieldTelefone.getText().length() == 14) {
-                    if (senha.length() > 3) {
-                        if (senha.equals(repetirSenha)) {
-                            UsuarioDAO usuariodao = new UsuarioDAO();
-                            boolean verificar = usuariodao.efetuarCadastro(usuario, telefone, senha);
-                            if(verificar==true){
-                                JOptionPane.showMessageDialog(null,"Usuario cadastrado com sucesso");
-                            }
-                        } else {
-                            JOptionPane.showMessageDialog(null, "As senhas devem ser iguais!");
-                        }
-                    } else {
-                        JOptionPane.showMessageDialog(null, "Senha deve ter ao menos 4 caracteres");
-                    }
-                } else {
-                    JOptionPane.showMessageDialog(null, "Telefone deve ter 11 caracteres");
-                }
-            } else {
-                JOptionPane.showMessageDialog(null, "Usuario deve ter ao menos 5 caracteres");
+        validacaoCadastro validador = new validacaoCadastro();
+        
+        if (validador.valida(usuario, senha, repetirSenha, telefone)){
+            UsuarioDAO usuariodao = new UsuarioDAO();
+            if(usuariodao.efetuarCadastro(usuario, telefone, senha)){
+                JOptionPane.showMessageDialog(null,"Usuario cadastrado com sucesso");
             }
-
-        } else {
-            JOptionPane.showMessageDialog(null, "Preencha todos os campos e tente novamente");
         }
     }//GEN-LAST:event_jButtonCadastroActionPerformed
 
