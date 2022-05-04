@@ -533,7 +533,8 @@ public class TelaGEditarImovel extends javax.swing.JFrame {
     private void txtNumKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumKeyPressed
         char c = evt.getKeyChar();
         
-        if(Character.isLetter(c)) {
+        if(Character.isLetter(c)
+                || evt.getExtendedKeyCode() == KeyEvent.VK_SPACE) {
             txtNum.setEditable(false);
         } else {
             txtNum.setEditable(true);
@@ -560,7 +561,8 @@ public class TelaGEditarImovel extends javax.swing.JFrame {
     private void txtCepKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCepKeyPressed
         char c = evt.getKeyChar();
             
-        if(Character.isLetter(c)) {
+        if(Character.isLetter(c)
+                || evt.getExtendedKeyCode() == KeyEvent.VK_SPACE) {
             txtCep.setEditable(false);
         } else {
             txtCep.setEditable(true);
@@ -596,7 +598,8 @@ public class TelaGEditarImovel extends javax.swing.JFrame {
     private void txtValKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtValKeyPressed
         char c = evt.getKeyChar();
         
-        if(Character.isLetter(c)) {
+        if(Character.isLetter(c)
+                || evt.getExtendedKeyCode() == KeyEvent.VK_SPACE) {
             txtVal.setEditable(false);
         } else {
             txtVal.setEditable(true);

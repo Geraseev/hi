@@ -68,7 +68,7 @@ public class TelaGerente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        TelaGadicionaImovel telagerente = new TelaGadicionaImovel();
+        TelaGAdicionaImovel telagerente = new TelaGAdicionaImovel();
         telagerente.setVisible(true);
         
     }//GEN-LAST:event_jMenuItem1ActionPerformed

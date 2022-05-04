@@ -12,9 +12,9 @@ import javax.swing.text.MaskFormatter;
 import javax.swing.text.PlainDocument;
 import validacao.validacaoAddImovel;
 
-public class TelaGadicionaImovel extends javax.swing.JFrame {
+public class TelaGAdicionaImovel extends javax.swing.JFrame {
     
-    public TelaGadicionaImovel() {
+    public TelaGAdicionaImovel() {
         this.setResizable(false);
         initComponents();
         
@@ -331,7 +331,8 @@ public class TelaGadicionaImovel extends javax.swing.JFrame {
     private void txtNumKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumKeyPressed
         char c = evt.getKeyChar();
         
-        if(Character.isLetter(c)) {
+        if(Character.isLetter(c)
+                || evt.getExtendedKeyCode() == KeyEvent.VK_SPACE) {
             txtNum.setEditable(false);
         } else {
             txtNum.setEditable(true);
@@ -341,7 +342,8 @@ public class TelaGadicionaImovel extends javax.swing.JFrame {
     private void txtCepKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCepKeyPressed
         char c = evt.getKeyChar();
             
-        if(Character.isLetter(c)) {
+        if(Character.isLetter(c)
+                || evt.getExtendedKeyCode() == KeyEvent.VK_SPACE) {
             txtCep.setEditable(false);
         } else {
             txtCep.setEditable(true);
@@ -351,7 +353,8 @@ public class TelaGadicionaImovel extends javax.swing.JFrame {
     private void txtValKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtValKeyPressed
         char c = evt.getKeyChar();
         
-        if(Character.isLetter(c)) {
+        if(Character.isLetter(c)
+                || evt.getExtendedKeyCode() == KeyEvent.VK_SPACE) {
             txtVal.setEditable(false);
         } else {
             txtVal.setEditable(true);
@@ -428,20 +431,21 @@ public class TelaGadicionaImovel extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaGadicionaImovel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaGAdicionaImovel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaGadicionaImovel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaGAdicionaImovel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaGadicionaImovel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaGAdicionaImovel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaGadicionaImovel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaGAdicionaImovel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaGadicionaImovel().setVisible(true);
+                new TelaGAdicionaImovel().setVisible(true);
             }
         });
     }
