@@ -78,6 +78,11 @@ public class TelaCadastro extends javax.swing.JFrame {
                 jTextFieldUsuarioActionPerformed(evt);
             }
         });
+        jTextFieldUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextFieldUsuarioKeyPressed(evt);
+            }
+        });
 
         jLabelUsuario.setText("Usuário:");
 
@@ -264,6 +269,16 @@ public class TelaCadastro extends javax.swing.JFrame {
             jPasswordFieldSenha.setEditable(true);
         }
     }//GEN-LAST:event_jPasswordFieldRepetirSenhaKeyPressed
+
+    private void jTextFieldUsuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldUsuarioKeyPressed
+        char c = evt.getKeyChar();
+        
+        if(evt.getExtendedKeyCode() == KeyEvent.VK_SPACE) {
+            jTextFieldUsuario.setEditable(false);
+        } else {
+            jTextFieldUsuario.setEditable(true);
+        }
+    }//GEN-LAST:event_jTextFieldUsuarioKeyPressed
 
     /**
      * @param args the command line arguments

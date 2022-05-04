@@ -1,6 +1,7 @@
 package telas;
 
 import DAO.UsuarioDAO;
+import java.awt.event.KeyEvent;
 import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -85,6 +86,11 @@ public class TelaLogin extends javax.swing.JFrame {
                 jTextFieldUsuarioActionPerformed(evt);
             }
         });
+        jTextFieldUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextFieldUsuarioKeyPressed(evt);
+            }
+        });
         getContentPane().add(jTextFieldUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 75, 110, -1));
 
         jLabelUsuario.setText("Usuário:");
@@ -96,6 +102,11 @@ public class TelaLogin extends javax.swing.JFrame {
         jPasswordFieldSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPasswordFieldSenhaActionPerformed(evt);
+            }
+        });
+        jPasswordFieldSenha.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPasswordFieldSenhaKeyPressed(evt);
             }
         });
         getContentPane().add(jPasswordFieldSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 115, 110, -1));
@@ -151,6 +162,26 @@ public class TelaLogin extends javax.swing.JFrame {
             Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButtonCadastroActionPerformed
+
+    private void jPasswordFieldSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordFieldSenhaKeyPressed
+        char c = evt.getKeyChar();
+        
+        if(evt.getExtendedKeyCode() == KeyEvent.VK_SPACE) {
+            jPasswordFieldSenha.setEditable(false);
+        } else {
+            jPasswordFieldSenha.setEditable(true);
+        }
+    }//GEN-LAST:event_jPasswordFieldSenhaKeyPressed
+
+    private void jTextFieldUsuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldUsuarioKeyPressed
+        char c = evt.getKeyChar();
+        
+        if(evt.getExtendedKeyCode() == KeyEvent.VK_SPACE) {
+            jTextFieldUsuario.setEditable(false);
+        } else {
+            jTextFieldUsuario.setEditable(true);
+        }
+    }//GEN-LAST:event_jTextFieldUsuarioKeyPressed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
