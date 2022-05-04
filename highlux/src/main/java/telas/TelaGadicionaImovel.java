@@ -96,19 +96,20 @@ public class TelaGAdicionaImovel extends javax.swing.JFrame {
         btnND = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(435, 482));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel12.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         jLabel12.setText("Valor: ");
         getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(86, 370, -1, -1));
 
-        jButton2.setText("Enter");
+        jButton2.setText("Adicionar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 425, -1, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 400, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         jLabel5.setText("Cidade: ");
@@ -240,7 +241,7 @@ public class TelaGAdicionaImovel extends javax.swing.JFrame {
                 btnNDActionPerformed(evt);
             }
         });
-        getContentPane().add(btnND, new org.netbeans.lib.awtextra.AbsoluteConstraints(213, 338, -1, -1));
+        getContentPane().add(btnND, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 340, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

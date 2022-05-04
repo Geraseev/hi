@@ -492,10 +492,12 @@ public class TelaGEditarImovel extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonEditarActionPerformed
 
     private void txtCodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_txtCodActionPerformed
 
     private void tabela1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabela1MouseClicked
+        btnD.setSelected(false);
+        btnND.setSelected(false);
         txtCod.setText(tabela1.getValueAt(tabela1.getSelectedRow(), 0).toString());
         txtLog.setText(tabela1.getValueAt(tabela1.getSelectedRow(), 1).toString());
         txtNum.setText(tabela1.getValueAt(tabela1.getSelectedRow(), 2).toString());
@@ -504,6 +506,12 @@ public class TelaGEditarImovel extends javax.swing.JFrame {
         txtCid.setText(tabela1.getValueAt(tabela1.getSelectedRow(), 5).toString());
         txtEst.setText(tabela1.getValueAt(tabela1.getSelectedRow(), 6).toString());
         txtCep.setText(tabela1.getValueAt(tabela1.getSelectedRow(), 7).toString());
+        String status = tabela1.getValueAt(tabela1.getSelectedRow(), 8).toString();
+        if (status.equals("Disponivel")) {
+            btnD.setSelected(true);
+        } else if (status.equals("Não disponivel")) {
+            btnND.setSelected(true);
+        }
         //btnD.setText(tabela1.getValueAt(tabela1.getSelectedRow(), 7).toString());
         txtVal.setText(tabela1.getValueAt(tabela1.getSelectedRow(), 9).toString());
     }//GEN-LAST:event_tabela1MouseClicked
