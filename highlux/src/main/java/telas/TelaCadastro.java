@@ -112,6 +112,11 @@ public class TelaCadastro extends javax.swing.JFrame {
                 jPasswordFieldRepetirSenhaActionPerformed(evt);
             }
         });
+        jPasswordFieldRepetirSenha.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPasswordFieldRepetirSenhaKeyPressed(evt);
+            }
+        });
 
         jLabelRepetirSenha.setText("Repetir Senha:");
 
@@ -257,12 +262,28 @@ public class TelaCadastro extends javax.swing.JFrame {
     }//GEN-LAST:event_jPasswordFieldRepetirSenhaActionPerformed
 
     private void jPasswordFieldSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordFieldSenhaKeyPressed
-
+        char c = evt.getKeyChar();
+        
+        if(evt.getExtendedKeyCode() == KeyEvent.VK_SPACE) {
+            jPasswordFieldSenha.setEditable(false);
+        } else {
+            jPasswordFieldSenha.setEditable(true);
+        }
     }//GEN-LAST:event_jPasswordFieldSenhaKeyPressed
 
     private void jFormattedTextFieldTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldTelefoneActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jFormattedTextFieldTelefoneActionPerformed
+
+    private void jPasswordFieldRepetirSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordFieldRepetirSenhaKeyPressed
+        char c = evt.getKeyChar();
+        
+        if(evt.getExtendedKeyCode() == KeyEvent.VK_SPACE) {
+            jPasswordFieldSenha.setEditable(false);
+        } else {
+            jPasswordFieldSenha.setEditable(true);
+        }
+    }//GEN-LAST:event_jPasswordFieldRepetirSenhaKeyPressed
 
     /**
      * @param args the command line arguments
