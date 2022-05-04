@@ -521,7 +521,8 @@ public class TelaGEditarImovel extends javax.swing.JFrame {
 
         if(Character.isLetter(c)
                 || evt.getExtendedKeyCode() == KeyEvent.VK_BACK_SPACE
-                || evt.getExtendedKeyCode() == KeyEvent.VK_DELETE) {
+                || evt.getExtendedKeyCode() == KeyEvent.VK_DELETE
+                || evt.getExtendedKeyCode() == KeyEvent.VK_SPACE) {
             txtLog.setEditable(true);
         } else {
             txtLog.setEditable(false);
@@ -548,7 +549,8 @@ public class TelaGEditarImovel extends javax.swing.JFrame {
         
         if(Character.isLetter(c)  
                 || evt.getExtendedKeyCode() == KeyEvent.VK_BACK_SPACE
-                || evt.getExtendedKeyCode() == KeyEvent.VK_DELETE) {
+                || evt.getExtendedKeyCode() == KeyEvent.VK_DELETE
+                || evt.getExtendedKeyCode() == KeyEvent.VK_SPACE) {
             txtBairro.setEditable(true);
         } else {
             txtBairro.setEditable(false);
@@ -570,7 +572,8 @@ public class TelaGEditarImovel extends javax.swing.JFrame {
                
         if(Character.isLetter(c)
                 || evt.getExtendedKeyCode() == KeyEvent.VK_BACK_SPACE
-                || evt.getExtendedKeyCode() == KeyEvent.VK_DELETE) {
+                || evt.getExtendedKeyCode() == KeyEvent.VK_DELETE
+                || evt.getExtendedKeyCode() == KeyEvent.VK_SPACE) {
             txtCid.setEditable(true);
         } else {
             txtCid.setEditable(false);
@@ -582,7 +585,8 @@ public class TelaGEditarImovel extends javax.swing.JFrame {
         
         if(Character.isLetter(c)
                 || evt.getExtendedKeyCode() == KeyEvent.VK_BACK_SPACE
-                || evt.getExtendedKeyCode() == KeyEvent.VK_DELETE) {
+                || evt.getExtendedKeyCode() == KeyEvent.VK_DELETE
+                || evt.getExtendedKeyCode() == KeyEvent.VK_SPACE) {
             txtEst.setEditable(true);
         } else {
             txtEst.setEditable(false);

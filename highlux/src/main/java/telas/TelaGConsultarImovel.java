@@ -226,7 +226,8 @@ public class TelaGConsultarImovel extends javax.swing.JFrame {
         
         if(Character.isLetter(c)
                 || evt.getExtendedKeyCode() == KeyEvent.VK_BACK_SPACE
-                || evt.getExtendedKeyCode() == KeyEvent.VK_DELETE) {
+                || evt.getExtendedKeyCode() == KeyEvent.VK_DELETE
+                || evt.getExtendedKeyCode() == KeyEvent.VK_SPACE) {
             txtCon.setEditable(true);
         } else {
             txtCon.setEditable(false);
