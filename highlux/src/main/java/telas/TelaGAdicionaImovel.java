@@ -291,7 +291,7 @@ public class TelaGAdicionaImovel extends javax.swing.JFrame {
 
                 ImovelDAO dao = new ImovelDAO();
                 if(dao.adicionarImovel(obj)){
-                    JOptionPane.showMessageDialog(null, "Adicionado com sucesso!");
+                    JOptionPane.showMessageDialog(null, "Adicionado com sucesso");
                 } else {
                     JOptionPane.showMessageDialog(null, "Não foi possível adicionar o imóvel");
                 }
