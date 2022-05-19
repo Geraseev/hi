@@ -172,5 +172,26 @@ public class ImovelDAO {
         }
     }
     
+    public boolean comprarImovel(int idimovel){
+        try {
+            String cmdsql = "update imovel set status=? where idimovel=?";
+            
+            PreparedStatement stmt = conecta.prepareStatement(cmdsql);
+            
+            int status = 2;
+            
+            stmt.setInt(1, status);
+            stmt.setInt(2, idimovel);
+            
+            stmt.execute();
+            
+            stmt.close();
+            return true;
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro ao comprar Imóvel!" + e);
+            return false;
+        }
+    }
+    
     
 }

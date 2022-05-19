@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.PlainDocument;
+import validacao.validacaoBuyImovel;
 
 public class TelaCConsultarImovel extends javax.swing.JFrame {
 
@@ -262,14 +263,24 @@ public class TelaCConsultarImovel extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtConKeyPressed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
-
+    int idimovel = 0;
     
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        validacaoBuyImovel validador = new validacaoBuyImovel();
+        
+        if(validador.valida(idimovel)){
+            ImovelDAO dao = new ImovelDAO();
+            if(dao.comprarImovel(idimovel)){
+                JOptionPane.showMessageDialog(null, "Compra realizada com sucesso!");
+                idimovel = 0;
+            } else {
+                JOptionPane.showMessageDialog(null, "Não foi possível comprar o imóvel");
+            }
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
     
     private void tabela1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabela1MouseClicked
-        // TODO add your handling code here:
+       idimovel = (int) tabela1.getValueAt(tabela1.getSelectedRow(), 0);
     }//GEN-LAST:event_tabela1MouseClicked
 
     /**
