@@ -41,8 +41,7 @@ public class TelaCConsultarImovel extends javax.swing.JFrame {
     }
     public TelaCConsultarImovel() {
         initComponents();
-        DefaultTableModel modelo = (DefaultTableModel)tabela1.getModel();
-        tabela1.setRowSorter(new TableRowSorter(modelo));
+        
         
         myInitComponents();
     }
