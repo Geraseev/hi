@@ -6,7 +6,7 @@ import DAO.ImovelDAO;
 import java.awt.event.KeyEvent;
 import javabeans.Imovel;
 import javax.swing.JOptionPane;
-//import javax.swing.table.TableRowSorter;
+import javax.swing.table.TableRowSorter;
 import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.PlainDocument;
