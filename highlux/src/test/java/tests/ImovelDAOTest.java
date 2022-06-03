@@ -185,5 +185,41 @@ public class ImovelDAOTest {
         }
     }   
     
-    
+    @Test
+    public void testComprarImovel() throws SQLException {
+        ImovelDAO id = new ImovelDAO();
+        
+        int idimovel = 1;
+        String logradouro = "rua tal";
+        String numero = "123";
+        String bairro = "centro";
+        String cidade = "cornelio";
+        String estado = "parana";
+        String cep = "86300000";
+        String complemento = "apto 5";
+        String valor = "500";
+        String status = "disponível";
+        
+        Imovel imovel = new Imovel(idimovel,logradouro,numero,bairro,cidade,estado,valor,status,cep,complemento);
+        
+        /*executa cadastro*/
+        assertEquals(true, id.adicionarImovel(imovel));
+
+        int statusInt = 0;
+        
+        /*executa cadastro*/
+        assertEquals(true, id.comprarImovel(idimovel));
+        
+        /*consulta status do imóvel para averiguar alteração */
+        String select = "select status from imovel where idimovel=?";
+        PreparedStatement stmt = connection.prepareStatement(select);
+        
+        stmt.setInt(1, statusInt);
+        
+        ResultSet rs = stmt.executeQuery();
+        rs.next();
+
+        /*realiza asserções confirmando que os dados foram adicionados ao banco corretamente*/
+        assertEquals(2, rs.getInt("status"));
+    }
 }
